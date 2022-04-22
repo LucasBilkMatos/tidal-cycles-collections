@@ -1,7 +1,6 @@
 
-setcps 0.6
-
 hush
+
 
 d1
   $ sometimes (rev)
@@ -16,5 +15,5 @@ d1
   # delay 0.2
   # distort 0.1
   # hpf 60
-  # cut "[10|100|600]"
+  # cut (choose [10, 100, 600])
   # cps (slow 6 $ 0.5 + saw)
