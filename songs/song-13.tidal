@@ -20,15 +20,15 @@ d1
     $ s "feel"
     # n (irand 32)
     # hpf 240
-    # gain 0.8
+    # gain 0.7
     # room 0.3
     ,
     fast 3
     $ degradeBy 0.2
-    $ s "tech(3,8,<2 3>)" # n (irand 16)
+    $ s "dr_few(3,8,2)" # n (irand 16)
     # hpf 1200
-    # speed (range 1 1.1 $ slow 4 sine)
-    # gain (range 0.7 0.8 $ slow 4 sine)
+    # speed (range 0.9 1.0 $ slow 4 sine)
+    # gain (range 0.8 0.9 $ slow 4 sine)
     # distort 0.05
     # room 0.5
     # cut (choose [100, 250, 500])
