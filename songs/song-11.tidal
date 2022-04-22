@@ -1,7 +1,6 @@
 
 hush
 
-
 d1
   $ sometimes (rev)
   $ sometimesBy 0.4 (stutWith 2 (0.125) (stutWith 8 (0.0625) (|* gain 0.9).(|* hpf 1.2)))

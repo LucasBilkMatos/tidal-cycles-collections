@@ -2,6 +2,7 @@
 
 hush
 
+
 d1
   $ every 8 (# hpf 1200)
   $ stack [
@@ -10,7 +11,7 @@ d1
     $ s "world:3"
     # gain 1.1
     # hpf (choose [30, 120, 240])
-    # distort (range 0 0.3 $ slow 32 saw)
+    # distort (range 0 0.4 $ slow 32 saw)
     # lpf 6000
     ,
     fast 16
@@ -20,7 +21,7 @@ d1
     $ s "feel"
     # n (irand 32)
     # hpf 240
-    # gain 0.7
+    # gain 0.5
     # room 0.3
     ,
     fast 3
@@ -30,7 +31,7 @@ d1
     # speed (range 0.9 1.0 $ slow 4 sine)
     # gain (range 0.8 0.9 $ slow 4 sine)
     # distort 0.05
-    # room 0.5
+    # room 0.7
     # cut (choose [100, 250, 500])
     # pan (slow 2 sine)
   ]
