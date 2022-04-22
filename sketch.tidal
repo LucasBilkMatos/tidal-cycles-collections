@@ -1,0 +1,38 @@
+
+-- performance collections
+-- start 20.04.2022
+
+setcps 0.4
+
+hush
+
+d1
+  $ every 4 (# hpf 1200)
+  $ stack [
+    degradeBy 0.3
+    $ fast 16
+    $ s "world:3"
+    # gain 1
+    # hpf "[30|90|240]"
+    # distort (range 0 0.5 $ slow 16 saw)
+    # lpf 6000
+    ,
+    fast 16
+    $ every 4 rev
+    $ sometimes (# cut 1)
+    $ s "feel"
+    # n (irand 32)
+    # hpf 240
+    # gain 0.8
+    # room 0.3
+    ,
+    fast 3
+    $ degradeBy 0.2
+    $ s "tech(3,8,2)" # n (irand 16)
+    # hpf 1200
+    # speed (range 1 1.1 $ slow 4 sine)
+    # gain (range 0.7 0.8 $ slow 4 sine)
+    # distort 0.05
+    # room 0.5
+    # cut "[100|250|500]"
+  ]

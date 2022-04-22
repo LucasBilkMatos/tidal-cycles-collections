@@ -1,0 +1,35 @@
+
+
+hush
+
+d1
+  $ every 8 (#hpf "<2048 512>")
+  $ stack [
+    every 4 rev
+    $ fast 8
+    $ degradeBy 0.2
+    $ sometimes (stutWith 2 (0.0625) (stutWith 12 (choose [0.0625/4, 0.0625, 0.125]) (|* gain 0.9) . (|* size 1.1) . (|* hpf 1.25)))
+    $ s "~ [v]" # n (irand 8)
+    # room 0.7
+    # size 0.9
+    # gain 0.9
+    # delay 0.1
+    # hpf 220
+    # lpf 22000
+    # distort 0.2
+    ,
+    fast 8
+    $ s "~ hh"
+    # gain "<0.7 0.8>"
+    # room 0.2
+    # speed 0.5
+    # hpf 2000
+    ,
+    degradeBy 0.2
+    $ sometimesBy 0.6 (stutWith 2 (0.125/2) (|* gain 0.7))
+    $ s "world:4(3,8,1)?"
+    # gain "[0.7 0.8]"
+    # hpf 40
+    # cut "[100|300]"
+  ]
+  # cps 0.7

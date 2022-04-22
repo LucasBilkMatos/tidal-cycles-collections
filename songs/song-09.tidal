@@ -1,0 +1,39 @@
+hush
+
+d1
+  $ every 8 (#hpf 1200)
+  $ stack [
+    fast 12
+    $ degradeBy 0.2
+    $ sometimes (rev)
+    $ sometimesBy 0.2 (#cut 100)
+    $ sometimesBy 0.4 (stutWith 2 (0.0625) (stutWith 10 (0.0625/2) (|* gain 0.9).(|* hpf 1.1)))
+    $ s "[auto]" # n (irand 32)
+    # room 0.5
+    # delay 0.1
+    # gain 1.2
+    # hpf 80
+    # cut 100
+  ,
+    fast 16
+    $ degradeBy 0.9
+    $ s "world:6?"
+    # gain 1.1
+    # hpf 40
+    # speed "[1 1.5]"
+    # lpf 4000
+    # rel (rand)
+    ,
+    fast 16
+    $ s "~ [bottle|chin]*[1|2]?"
+    # n (irand 32)
+    # gain 1.5
+    # hpf 100
+    # room 0.5
+    # gain (rand)
+    # delay 0.1
+    # cut "[10|200]"
+  ]
+  # cps (slow 4 $ 0.5 + (saw * 0.05))
+
+hush

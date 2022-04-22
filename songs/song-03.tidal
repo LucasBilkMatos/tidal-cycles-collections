@@ -1,0 +1,42 @@
+hush
+
+setcps 0.61
+d3 $ jux rev $ off 0.2 (# vowel "<i o a>") $ juxBy 0.4 rev $ n "0 <2 4> [0 2*2] [2 <5 3>]" # sound "haw"  # speed 1.7 # hpf (1100) # lpf(2500) # gain 0.7 # room (slow 4 $ range 0 0.2 saw) # sz 0.1
+d5 $ every 16 (# hpf(600)) $ off 0.5 (# vowel "<o>") $ juxBy 0.4 rev $ s "0 0 [2 4] [1*3 2]" # sound "feel" # speed 1 # gain 0.8 # lpf (700)
+
+hush
+
+d1 $ trunc "<0.75 1 1.25>" $ off 0.8 (# vowel "a") $ n "0 1 [5 1*<1 1 1 5>] [2 <3 5>*5]" # sound "feel" # speed 1.5 # room 0.3 # lpf (5000) # hpf (720) # gain 0.9 # nudge 0.9
+
+
+d1 $ juxBy 0.5 rev $ chunk 4 (hurry 2) $ n "0 [~2 <3 5 0>] 3*<1 1 3>" # sound "world" # nudge 0.1 # room 0.1 # speed 1.5
+hush
+
+d1
+  $ bite 4 "0 1 2 4" $ n "0 .. 7"
+  # sound "arpy"
+
+hush
+
+
+d1
+  $ jux rev
+  $ every 8 (chunk 4 (# speed 2))
+  $ n "5 1 [1/2 1*<2 3>] [1 0?]"
+  # sound "feelfx"
+  # room 0.4
+  # speed 1.5
+  # nudge 0.9
+  # vowel "a o i o i"
+  # lpf(1000)
+  # gain 0.9
+
+d2
+  $ fast 1 $ n "0(4,8)"
+  # sound "feel"
+
+hush
+
+d1 $ slow 2 $
+  n (off 0.25 (+12) $ off 0.125 (+7) $ slow 2 "c(3,8) a(3,8,2) f(3,8) e(3,8,4)")
+  # sound "superpiano"
