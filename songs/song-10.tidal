@@ -49,5 +49,4 @@ d1
     # room 0.5
     # delay 0.5
   ]
-  # lpf 20000
   # cps 0.6
