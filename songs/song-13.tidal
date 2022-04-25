@@ -2,40 +2,39 @@
 
 hush
 
-
 d1
   $ every 8 (# hpf 1200)
   $ stack [
-    degradeBy 0.2
-    $ fast 16
-    $ s "world:3?"
+    fast 16
+    $ degradeBy 0.7
+    $ s "world:3"
     # gain 1.1
-    # hpf 30
+    # hpf (choose [30, 90])
+    # cut 10
     # speed (choose [1, 1.1])
-    # distort (range 0 0.3 $ slow 32 saw)
+    # distort (range 0 0.1 $ slow 4 $ saw)
     # lpf 6000
     ,
     fast 16
     $ sometimes (rev)
-    $ s "[feel]"
+    $ degradeBy 0.1
+    $ s "[feel|less]"
     # n (irand 32)
-    # cut (choose [10, 100, 1000])
+    # cut (choose [20, 100, 1000])
     # speed (1 + rand)
-    # hpf 300
-    # lpf 8000
-    # distort 0.1
+    # hpf 240
+    # lpf 12000
     # gain 1.1
-    # room 0.5
+    # room 0.2
     ,
     fast 3
     $ degradeBy 0.2
     $ s "dr_few(3,8,2)" # n (irand 16)
     # hpf 1200
-    # speed (range 0.9 1.0 $ slow 4 sine)
-    # gain (range 0.8 0.9 $ slow 4 sine)
-    # distort 0.05
-    # room 0.5
+    # speed (slow 4 $ 0.9 + saw)
+    # gain 0.75
+    # room 0.3
     # cut (choose [10, 25, 100])
     # pan (slow 2 sine)
   ]
-  # cps (slow 4 $ 0.5 + (saw * 0.05))
+  # cps (slow 4 $ 0.4 + (saw * 0.05))

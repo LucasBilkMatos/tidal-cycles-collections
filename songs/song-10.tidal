@@ -20,7 +20,7 @@ d1
     $ every 4 (rev)
     $ every 2 (stutWith 2 (0.0626) (stutWith 10 (choose [0.0625, 0.0625/2, 0.0625/4]) (|* gain 0.9).(|* hpf 1.1)))
     $ s "~ [~drum:6]" # n (irand 8)
-    # room 0.5
+    # room 0.3
     # hpf 240
     # gain 0.9
     ,
@@ -37,7 +37,7 @@ d1
     # gain 0.9
     # cut 1
     ,
-    every 4 (stutWith 2 (0.0625) (|* gain 0.9).(|* hpf 1.1).(|* speed 0.9).(|* delay 1.2))
+    every 4 (stutWith 2 (0.0625) (|* gain 0.9).(|* hpf 1.1).(|* speed 0.9))
     $ someCyclesBy 0.2 (rev)
     $ degradeBy 0.2
     $ fast 8
@@ -46,7 +46,8 @@ d1
     # hpf 1000
     # lpf 10000
     # pan (rand)
-    # room 0.5
+    # room 0.3
     # delay 0.5
   ]
+  # gain 0.9
   # cps 0.6

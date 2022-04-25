@@ -6,8 +6,10 @@ d1
   $ sometimesBy 0.4 (stutWith 2 (0.125) (stutWith 8 (0.0625) (|* gain 0.9).(|* hpf 1.2)))
   $ degradeBy 0.2
   $ every 4 (# hpf 2400).(# speed (rand + 1))
-  $ fast 12
-  $ s "[voodoo|feel|tech]" # n (irand 32) # speed (1 + saw)
+  $ fast 6
+  $ s "[voodoo|feel|tech]"
+  # n (irand 32)
+  # speed (1 + saw)
   # gain 1.1
   # room 0.6
   # size 0.2
@@ -15,4 +17,4 @@ d1
   # distort 0.1
   # hpf 60
   # cut (choose [10, 100, 600])
-  # cps (slow 6 $ 0.5 + saw)
+  # cps (slow 6 $ 0.6 + saw)
