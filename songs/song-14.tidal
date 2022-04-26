@@ -16,11 +16,10 @@ d1
     # distort 0.2
     # gain 1.2
     # delay 0.2
-    # legato (range 1 6 $ sine)
-    -- # end (0.2 + rand)
+    # legato (range 1 6 $ perlin)
     ,
     fast 1
-    $ s "world:2 world:2 world:2"
+    $ s "[world:2*2] ~ world:2"
     # distort 0.2
     # hpf 30
     # lpf 6000
