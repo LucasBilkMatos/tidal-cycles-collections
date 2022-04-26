@@ -16,11 +16,12 @@ d1
     # lpf 6000
     ,
     fast 16
+    $ sometimes (# cut 4)
     $ sometimes (rev)
     $ degradeBy 0.1
     $ s "[feel|less]"
     # n (choose [2,3,4,5,6])
-    # cut (choose [100, 1000])
+    # cut (choose [10, 100])
     # speed (1 + rand)
     # hpf 240
     # lpf 12000
@@ -39,3 +40,5 @@ d1
   ]
   # gain 0.9
   # cps (slow 4 $ 0.4 + (saw * 0.05))
+
+hush
