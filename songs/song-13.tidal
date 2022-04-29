@@ -3,12 +3,13 @@
 hush
 
 d1
-  $ every 8 (# hpf 1200)
-  $ stack [
+    $ swingBy (1/2) 4
+    $ every 8 (# hpf 1200)
+    $ stack [
     fast 16
     $ degradeBy 0.2
     $ s "world:3"
-    # gain 1.1
+    # gain (range 0.9 1.1 rand)
     # hpf (choose [30, 240])
     # cut 10
     # speed (choose [1, 1.1])
@@ -25,7 +26,7 @@ d1
     # speed (1 + rand)
     # hpf 240
     # lpf 12000
-    # gain 1.2
+    # gain (range 0.9 1.2 rand)
     # room 0.2
     ,
     fast 3
@@ -36,9 +37,9 @@ d1
     # gain 0.0
     # room 0.3
     # cut (choose [10, 25, 100])
-    # pan (slow 2 sine)
+    # pan (slow 2 $ range 2.5 7.5 sine)
   ]
   # gain 0.9
-  # cps (slow 4 $ 0.4 + (saw * 0.05))
+  # cps (slow 8 $ 0.4 + (saw * 0.05))
 
 hush

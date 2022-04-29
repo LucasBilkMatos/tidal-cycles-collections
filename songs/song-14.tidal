@@ -1,12 +1,9 @@
-
-
 hush
 
 d1
   $ stack [
-    sometimes (rev)
-    $ sometimesBy 0.4 (plyWith 3 (# gain 0.8).(|* hpf 2).(|* speed (1 + rand)))
-    $ sometimesBy 0.2 (stutWith 2 (0.0625) (stutWith "[8|12]" (0.0625) (|* gain 0.9).(# cut (choose [64, 128]))))
+    $ sometimesBy 0.4 (plyWith 2 (# gain 0.8).(|* hpf 2).(|* speed (0.5 + rand)))
+    $ sometimesBy 0.2 (stutWith 2 (0.0625) (stutWith "[6|12]" (0.0625) (|* gain 0.9).(# cut (choose [64, 128]))))
     $ slow 1
     $ sound "[~ [~ bin]]"
     # n (irand 16)
@@ -16,10 +13,11 @@ d1
     # distort 0.2
     # gain 1.2
     # delay 0.2
-    # legato (range 1 6 $ perlin)
+    # legato (range 3 6 $ sine)
+    # speed 1
     ,
     fast 1
-    $ s "[world:2*2] ~ world:2"
+    $ s "world:2!3"
     # distort 0.2
     # hpf 30
     # lpf 6000

@@ -1,0 +1,2 @@
+let q = (# gain 0)
+let r = (range 30 240 $ saw)

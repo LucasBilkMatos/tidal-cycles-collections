@@ -1,19 +1,8 @@
--- $ s "[voodoo|feel|tech]" # n (irand 32) # speed (1 + saw)
--- fast 12
+
+
+let x = every 1 (# hpf 0)
+
+d1 $ x $ s "arpy" <| n (run 8)
+
 
 hush
-
-d1
-  $ sometimes (rev)
-  $ fast 9
-  $ degradeBy 0.2
-  $ every 4 (# hpf 1200).(# speed (rand + 1))
-  $ s "[voodoo|feel|tech]" # n (irand 32) # speed (1 + saw)
-  # room 0.6
-  # size 0.2
-  # hpf 60
-  # delay 0.2
-  # cut (choose [10, 100, 600])
-  # distort 0.1
-  # cps (slow 3 $ 0.4 + saw)
-  # gain 1.2
