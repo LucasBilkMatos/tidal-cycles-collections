@@ -1,32 +1,46 @@
-hush
+setcps 1
 
 d1
-  $ stack [
-    $ sometimesBy 0.4 (plyWith 2 (# gain 0.8).(|* hpf 2).(|* speed (0.5 + rand)))
-    $ sometimesBy 0.2 (stutWith 2 (0.0625) (stutWith "[6|12]" (0.0625) (|* gain 0.9).(# cut (choose [64, 128]))))
-    $ slow 1
-    $ sound "[~ [~ bin]]"
-    # n (irand 16)
-    # hpf 240
-    # room 0.2
-    # pan (sine)
-    # distort 0.2
-    # gain 1.2
-    # delay 0.2
-    # legato (range 3 6 $ sine)
-    # speed 1
-    ,
-    fast 1
-    $ s "world:2!3"
-    # distort 0.2
-    # hpf 30
-    # lpf 6000
+    $ sometimes rev
+    $ degradeBy 0.7
+    $ sometimes (stutWith 3 (0.25) (|* gain 0.9).(|* speed 1.5).(|* hpf 1.5))
+    $ chop "<2 4>"
+    $ s "<control stomp:[0|1|2|3]>"
+    # room 0.6
+    # shape 0.2
+    # hpf 200
+    # lpf (range 2000 1500 $ slow 32 sine)
+    # lpq 0.1
+    # speed "[1,0.5]"
     # gain 0.9
-    ,
-    fast 1
-    $ s "~ [808lc]"
-    # hpf 240
-  ]
-  # cps 0.4
+    # pan (slow 2 $ range 0.2 0.8 $ tri)
+
+d2
+    $ every 16 (# hpf (range 60 400 $ saw))
+    $ s "[bd ~]!2 ~"
+    # gain 1.2
+    # lpf 1000
+    # cut 1
+    # hpf 30
+    # rel 0.17
+
+d3
+    $ degrade
+    $ s "sf:8*8"
+    # gain 0.7
+    # pan (slow 19 $ range 0.3 0.7 $ sine)
+    # lpf 12000
+    # hpf 3000
+
+d4
+    $ s "~ ~ sf:5? [~|[sn:3|808lc:4|ab:8]]"
+    # hpf 400
+    # lpf 1000
+    # speed 0.85
+    # gain 0.7
+    # rel 0.6
+    # pan (slow 12 $ range 0.45 0.55 $ sine)
+
+
 
 hush
