@@ -1,43 +1,42 @@
-setcps 1
+setcps 1.05
 
-d1
-    $ sometimes rev
-    $ degradeBy 0.7
-    $ sometimes (stutWith 3 (0.25) (|* gain 0.9).(|* speed 1.5).(|* hpf 1.5))
-    $ chop "<2 4>"
-    $ s "control"
-    # room 0.6
-    # shape 0.2
-    # hpf 200
-    # lpf (range 2000 600 $ slow 32 sine)
-    # lpq 0.22
-    # speed "[1,0.5]"
-    # gain 0.9
+hush
 
-d2
-    $ s "[bd ~]!2"
-    # gain 1
-    # lpf 1000
-    # cut 1
-    # hpf 30
-    # rel 0.17
+-- foundation groove
+d1 $ degradeBy 0.6 $ sometimes rev $ chop 4 $ s "control" # n 0 # speed "[0.2,0.75]" # hpf 240 # cut 1 # legato 0.5 # lpq 0.2 # gain 0.9 # room 0.6 # size 0.8 # delay 0.1 #lpf (slow 8 $ range 1000 2000 $ tri)
+d2 $ s "bd ~ bd ~" # gain 0.9
+d3 $ up "[~ ~ ~ 0.75 ~ ~ ~ ~]/2" # s "bass" # lpf 400 # gain 0.9
+d4 $ sometimes (stutWith (choose [2, 3]) (1/16) (|* gain 0.7)) $ s "~~cp~?" # n 1 # gain 0.9 # hpf 400 # room 0.2 # lpf 4000 # pan (slow 30 $ range 0.4 0.6 $ sine)
+d5 $ degradeBy 0.2 $ s "hh*8" # hpf 10000 # legato 0.5  # rel 0.3 # pan (slow 12 $ range 0.2 0.8 $ sine) # gain 0.9 # speed 0.8
 
-d3
-    $ degrade
-    $ s "techno:2*8"
-    # gain 1.1
-    # pan (slow 19 $ range 0.2 0.8 $ sine)
-    # lpf (slow 16 $ range 12000 3000 $ sine)
-    # hpf 3000
-    # cut 1
+-- on top variations
+-- in case if multiple samples, check the freq range of each one
+d6 $ degrade $ s "~~<lt:1 peri:1>~~~808sd:2/2~" # gain 1 # hpf 400 # room 0.3 # size 0.7 # pan (slow 50 $ range 0.4 0.6 $ sine)  # delay 0.2
 
-d4
-    $ s "~ ~ sn:2 [~|[sn:13|808lc:4|ab:8]]"
-    # hpf 400
-    # lpf 4000
-    # gain 1
-    # rel 0.6
-    # pan (slow 12 $ range 0.4 0.6 $ sine)
 
+
+
+
+
+
+
+
+
+
+-- checking transitions
+xfadeIn 1 32 $ s "control" # lpq 0.2 # lpf 2000
+
+d1 silence
+d2 $ stack [
+    degradeBy 0.4 $ s "bd(5,8)" # cut 1,
+    degrade $ s "bd" <| n "[~~0~~~~~]/2" # legato 0.2 # speed "<1.1 1.2>" # hpf 120 # lpf 2000 # gain 0.9
+]
+# gain 1
+
+-- testing simplest composition
+d1 $ chop 8 $ s "juno:09" # hpf 300 # lpf (slow 32 $ range 400 2000 $ sine) # room 0.6 # lpq 0.1 # gain 0.7
+d2 $ up "[~ ~ ~ 1 ~ ~ ~ ~]/2" # s "bass" # lpf 400
+d3 $ s "bd ~ bd ~"
+d4 $ degrade $ s "hh*8" # hpf 8000 # pan (slow 20 $ range 0.2 0.8 $ sine)
 
 hush
