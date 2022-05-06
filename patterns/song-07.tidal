@@ -102,13 +102,13 @@ d1
         ,every 2 (juxBy 0.7 rev)
             $ degradeBy 0.2
             $ every 4 ((# lpf (range 300 6000 tri)).(#lpq 0.2).(#pan sine))
-            $ stutWith (choose [2, 3]) (0.0625) (|* gain 0.9)
+            $ stutWith (choose [2, 3, 7]) (0.0625) (|* gain 0.9)
             $ s "~<uxay hh27 haw ht if>" <| n (run 8)
             # orbit 4
             # cut 1
             # hpf 300
             # gain 1
-            # pan (slow 2 $ range 0.3 0.8 tri)
+            # pan (slow 2 $ range 0.4 0.7 tri)
       ]
       # cps (130/60/4)
 

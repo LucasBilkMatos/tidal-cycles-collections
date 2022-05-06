@@ -2,7 +2,7 @@ setcps 1
 
 d1
     $ sometimes rev
-    $ degradeBy 0.7
+    $ degradeBy 0.5
     $ sometimes (stutWith 3 (0.25) (|* gain 0.9).(|* speed 1.5).(|* hpf 1.5))
     $ chop "<2 4>"
     $ s "<control stomp:[0|1|2|3]>"
@@ -17,7 +17,7 @@ d1
 
 d2
     $ every 16 (# hpf (range 60 400 $ saw))
-    $ s "[bd ~]!2 ~"
+    $ s "[bd ~]!2"
     # gain 1.2
     # lpf 1000
     # cut 1
@@ -33,11 +33,11 @@ d3
     # hpf 3000
 
 d4
-    $ s "~ ~ sf:5? [~|[sn:3|808lc:4|ab:8]]"
+    $ s "~ ~ cp:5? [~|[sn:3|808lc:4|ab:8]]"
     # hpf 400
     # lpf 1000
     # speed 0.85
-    # gain 0.7
+    # gain 0.8
     # rel 0.6
     # pan (slow 12 $ range 0.45 0.55 $ sine)
 
