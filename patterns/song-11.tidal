@@ -7,7 +7,7 @@ d1
   $ degradeBy 0.2
   $ every 4 (# hpf 2400).(# speed (rand + 1))
   $ fast 3
-  $ s "[voodoo|feel|tech]"
+  $ s "[pec|toml|kcks]"
   # n (irand 32)
   # speed (1 + saw)
   # gain 1.1
@@ -20,3 +20,4 @@ d1
   # cut (choose [10, 100, 600])
   # cps (slow 6 $ 0.6 + saw)
   # gain 0.9
+  # orbit 1

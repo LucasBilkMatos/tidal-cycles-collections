@@ -10,10 +10,10 @@ $ stack [
         $ loopAt 2
         $ s "[hts:1/2][pec:<1 3 2>, snr:7]"
         # hpf 600
-        # gain 0.7
+        # gain 0.63
         # room 0.3
         # sz 0.7
-        # pan (range 0.45 0.55 $ slow 5 sine)
+        # pan (range 0.4 0.6 $ slow 7 sine)
     ,sometimesBy 0.3 (# speed "-2")
         $ s "~~~~tom/2~~"
         # n "<0 5>"
@@ -33,7 +33,8 @@ $ stack [
         # n "<3 4 5>"
         # gain 0.4
         # hpf 6000
-        # pan (slow 7 $ range 0.4 0.6 sine)
+        # lpf 15000
+        # pan (slow 5 $ range 0.47 0.53 sine)
         # room 0.3
 ]
 # cps 0.5
