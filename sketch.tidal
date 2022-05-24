@@ -14,11 +14,11 @@ hush
 
 d1
 $ stack  [
-    sometimesBy 0.3 (fast 2) $ s "hts*8" # n "<1 2 7>" # hpf 6000 # gain 0.6 # room 0.2 # lpf 3000,
+    sometimesBy 0.3 (fast 2) $ s "hts*8" # n "<1 2 7>" # hpf 6000 # gain 0.5 # room 0.2,
     s "cym/2" # hpf 6000 # room 0.2 # gain 0.8,
-    s "fx2" # n "<3 5 12>" # gain 0.9 # room 0.2 # delay 0.2,
-    degradeBy 0.4 $ sometimesBy 0.3 (# speed "<-2>") $ fast 2  $ s "[k2(3,8)]" # n "<5 6 7 8 9 10 11>" # gain 0.9,
-    s "~[~snr2] ~~" # n ("<1 2 3 4 5>") # legato 0.7 # speed (range 0.8 1 $ slow 2 sine) # hpf 200 # pan (range 0.3 0.7 $ slow 3 sine) # gain 0.0,
+    s "fx2" # n "<3 5 12>" # gain 0.8 # room 0.2 # delay 0.2 # hpf 120,
+    degradeBy 0.4 $ sometimesBy 0.3 (# speed "<-2>") $ fast 2  $ s "k2(3,8)" # n "<5 6 7 8 9 10 11>" # gain 0.9,
+    s "~[~snr2] ~~" # n ("<1 2 3 4 5>") # legato 0.7 # speed (range 0.8 1 $ slow 2 sine) # hpf 200 # pan (range 0.3 0.7 $ slow 3 sine) # gain 0.9,
     s "~~[~vcrk]~" # n (irand 32) # hpf 4000 # gain 0.85 # pan (range 0.6 0.4 $ slow 5 sine) # room 0.2
 ]
 # cps (140/240)
@@ -41,8 +41,8 @@ $ stack [
 hush
 
 
-d1 $
-stack [
+d1
+$ stack [
     sometimes (off 0.5 ((# speed "-2").(|* gain 0.9))) $ s "[~snr2]" # n 8 # room 0.2 # hpf 400 # gain 0.9,
     every 2 (stutWith "<2 2 3 3>" (0.125) ((|* gain 0.9).(|* hpf 1.2))) $ s "k2" # n 5,
     s "~~~~bs2~~~" # n 4 # gain 0.9,
@@ -54,7 +54,7 @@ stack [
 
 hush
 
-d1
+xfadeIn 1 8
 $ stack [
     sometimes (stutWith 3 (0.125) (|* gain 0.8).(|* hpf 1.5).(|* speed 1.1)) $ s "[k2(3,8) ~]" # n 10 # gain 0.8 # lpf 600,
     loopAt 2 $ s "fx2/2" # n 3 # hpf 1000 # gain 0.8 # speed 0.5 # room 0.2,
@@ -90,7 +90,7 @@ $ stack [
     s "~fx2" # n "<12 15>" # room 0.2 # hpf 400,
     s "fx2/2" # n 7 # hpf 1000 # room 0.2,
     s "[~bs2/2]~" # n 2 # gain 1 # hpf 60,
-    s "k2 ~ ~ k2 ~ ~ k2 ~" # n "5 1 9" # gain 0.9 # hpf 30,
+    s "k2 ~ ~ k2 ~ ~ k2 ~" # n "5 1 9" # lpf 2000 # gain 0.9 # hpf 30,
     sometimesBy 0.3 (# speed "-1 -2") $ sometimes (stutWith 2 (1/8) (|* gain 0.9)) $ s "[snr2(3,8,<0 1 3>)]/2" # room 0.2 # n "1 5 8" # hpf 800 # gain 0.8
 ]
 # orbit 1
