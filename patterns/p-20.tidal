@@ -2,120 +2,84 @@
 
 -- TODO:
 
--- 1. zimt application for hosting audio visual live coding user group meet up.
+-- 1. zimt application for hosting audio visual live coding user group meet up monthly.
 -- 2. video demo 3 ~ 4 min showing tidal cycles with hydra visuals.
 
 hush
 
-d1
-$ stack [
-    degradeBy "<0.1 0.4>"
-        $ off 0.5 (juxBy 0.5 (rev).(# speed "1.2 -2").(# s "cp"))
-        $ s "pec*16"
-        # n "<3 1 1>"
-        # hpf 400
-        # speed (slow 3 $ range 0.01 1 saw)
-        # gain 0.8
-        |* gain (slow 2 $ range 0.2 1 sine)
-        # room 0.2
-        # delay 0.2,
-    rarely (# vowel "i o")
-        $ s "bs2(3,8,1)"
-        # note "d5"
-        # n 3
-        # hpf 60
-        # lpf "400 1000"
-        # cut 1
-        # gain 0.8,
-    sometimes (stutWith "<2 3>" (choose [0.0625,0.125]) (|* gain 0.85).(|* speed 1.2))
-        $ s "k2(3,8)"
-        # n "<2 3>"
-        # crush "<4 8>"
-        # lpf 500
-        # gain 0.9
-        # hpf 30
-]
-# cps (140/240)
-# orbit 1
+setcps (132/240)
 
-hush
-
-
--- intro
+-- glitches
 
 d1
-$ stack [
-    degradeBy 0.7
-        $ off 0.5 (juxBy 0.5 (rev).(# speed "1.2 -2").(# s "cp").(|* hpf 1.5).(|* gain 0.9))
-        $ s "pec*16"
-        # n "<3 1 1>"
-        # legato (range 0.2 4 $ slow 3 sine)
-        # hpf 200
-        # speed (slow 3 $ range 0.01 1 saw)
-        # gain 0.8
-        |* gain (slow 2 $ range 0.2 1 sine)
-        # room 0.3
-        # delay 0.2
-        # pan (range 0.3 0.7 $ slow 3 sine),
-    rarely (# vowel "o i")
-        $ s "bs2(3,8,1)"
-        # n 2
-        # note "<d5 d5 ~ ~ >"
-        # lpf 300
-        # cut 1
-        # gain 0.9
-]
-# cps (140/240)
-# orbit 1
-
-
--- build up
-
-
-d1
-$ stack [
-    degradeBy 0.6
-        $ off 0.5 (juxBy 0.5 (rev).(# speed "1.2 -2").(# s "cp:5").(|* hpf 1.5).(|* gain 0.9))
-        $ s "pec*16"
-        # n "<3 1 1>"
-        # legato (range 0.2 4 $ slow 3 sine)
-        # hpf 400
-        # speed (slow 3 $ range 0.01 1 saw)
-        # gain 0.8
-        |* gain (slow 2 $ range 0.2 1 sine)
-        # room 0.3
-        # delay 0.2
-        # pan (range 0.3 0.7 $ slow 3 sine),
-    rarely (# vowel "o i")
-        $ s "bs2(3,8,1)"
-        # n 2
-        # note "<d5 d5 ~ ~>"
-        # lpf 300
-        # cut 1
-        # gain 0.9,
-    sometimesBy 0.4 (stutWith "<2 3>" (choose [0.0625,0.125]) (|* gain 0.85).(|* speed 1.2))
-        $ s "k2"
-        # n "<2 3>"
-        # crush "<4 8>"
-        # lpf 700
-        # gain 0.9
-]
-# cps (140/240)
-# orbit 1
-
-hush
-
-
--- variations
-
-
--- break
-
-
-d1
-    $ stack [
-        s "[~ hts]*4" # n "<1 2 3>" # hpf 6000 # legato "<0.2 0.3>" # room 0.2,
-        s "kcks*4" # n "<2>",
-        sometimesBy 0.8 (stutWith "[2|3]" (choose [0.0625]) (|* gain 0.8)) $ s "cp" # n "<1 2>" # hpf 400 # gain 0.9 # room 0.2
-    ]
+    $ sometimes (fast 4)
+    $ degradeBy 0.4
+    $ stutWith 3 (0.125) ((juxBy 0.5 (rev).(# speed "1 -1.2").(# s "cp").(# n 6).(|* hpf 1.2).(|* gain 0.85)))
+    $ s "cp*16"
+    # n "<3 1 1>"
+    # note "a5"
+    # attack 0.05
+    # legato (range 0.2 1 $ slow 3 sine)
+    # hpf 600
+    # speed (slow 3 $ range 0.7 1 saw)
+    # gain 0.7
+    |* gain (slow 2 $ range 0.4 1 sine)
+    # room 0.3
+    # delay 0.2
+    # pan (range 0.2 0.8 $ slow 3 sine)
     # orbit 1
+
+-- bass
+
+d2
+    $ s "[bs2(3,8)]"
+    # n 2
+    # note "<d4!3 f4>"
+    # hpf 60
+    # lpf (range 200 450 $ slow 5 sine)
+    # gain 0.6
+    # orbit 2
+
+-- kick
+
+d3
+    $ every 2 (off "<0.25>" ((rev).(fast 2)))
+    $ sometimes (stutWith 3 (0.125) (|* gain 0.8))
+    $ s "[kcks]"
+    # note "a4"
+    # n "<3>"
+    # lpf 1000
+    # crush 8
+    # hpf 30
+    # gain 0.6
+    # orbit 3
+
+-- hats
+d4
+    -- $ degradeBy 0.2
+    $ jux (rev)
+    $ sometimesBy 0.8 (fast 4)
+    $ s "hts*4"
+    # n "<2>"
+    # note "d6"
+    # orbit 4
+    # legato "<0.2 2>"
+    # gain 0.4
+    |* gain "[0.7 0.9 1 0.9]*4"
+    # hpf 6000
+    # room 0.2
+
+-- snare
+d5
+    $ slow 2
+    $ juxBy 0.5 (# delay 0.1)
+    $ s "~~snr~~~~~"
+    # n "<3>"
+    # note "a4"
+    # legato 0.4
+    # orbit 5
+    # gain 0.5
+    # hpf 400
+    # room 0.2
+
+hush
