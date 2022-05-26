@@ -7,7 +7,7 @@
 
 hush
 
-setcps (132/240)
+setcps (140/240)
 
 -- glitches
 
@@ -22,7 +22,7 @@ d1
     # legato (range 0.2 1 $ slow 3 sine)
     # hpf 600
     # speed (slow 3 $ range 0.7 1 saw)
-    # gain 0.7
+    # gain 0.65
     |* gain (slow 2 $ range 0.4 1 sine)
     # room 0.3
     # delay 0.2
@@ -35,7 +35,7 @@ d2
     $ s "[bs2(3,8)]"
     # n 2
     # note "<d4!3 f4>"
-    # hpf 60
+    # hpf 300
     # lpf (range 200 450 $ slow 5 sine)
     # gain 0.6
     # orbit 2
@@ -56,15 +56,14 @@ d3
 
 -- hats
 d4
-    -- $ degradeBy 0.2
-    $ jux (rev)
+    $ jux ("0.0625/2" ~>)
     $ sometimesBy 0.8 (fast 4)
     $ s "hts*4"
     # n "<2>"
     # note "d6"
     # orbit 4
     # legato "<0.2 2>"
-    # gain 0.4
+    # gain 0.5
     |* gain "[0.7 0.9 1 0.9]*4"
     # hpf 6000
     # room 0.2
@@ -81,5 +80,8 @@ d5
     # gain 0.5
     # hpf 400
     # room 0.2
+
+-- lead
+
 
 hush
