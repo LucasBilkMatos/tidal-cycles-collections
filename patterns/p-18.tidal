@@ -29,7 +29,7 @@ $ stack [
         # lpf (range 3000 500 $ slow 7 sine)
         # pan 0.5,
     sometimesBy 0.2 (stutWith (choose [2, 3]) (choose [0.125, 0.0625]) (|* gain 0.85).(|* hpf 1.5))
-        $ off 0.5 ((# n "1 2 10").(|* gain 0.9).(|* hpf 1.2))
+        -- $ off 0.5 ((# n "1 2 10").(|* gain 0.9).(|* hpf 1.2))
         $ s "[kcks:6(3,8)]"
         # gain 0.8
         # lpf 3000
@@ -53,5 +53,5 @@ $ stack [
         # pan (slow 5 $ range 0.35 0.65 sine)
         # room 0.3
 ]
-# cps 0.52
+# cps (140/240)
 # orbit 1

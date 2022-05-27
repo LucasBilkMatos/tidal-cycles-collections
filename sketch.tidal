@@ -29,17 +29,15 @@ hush
 d1
 $ stack [
     s "vcrk*3" # hpf 6000 # speed 0.5 # room 0.2 # gain 0.8,
-    s "~ snr2 ~ snr2" # n 4 # gain 1.4 # hpf 2700 # room 0.2,
-    s "k2(3,8)[k2? ~]" # n 5 # hpf 40,
+    s "~ ~ ~ snr2" # n 4 # gain 1.4 # hpf 2700 # room 0.2,
+    s "k2(3,8)[k2? ~]" # n 5 # hpf 30,
     s "snr2*<1 1 1 12 1 1 18>" # n 7 # hpf 220 # gain 0.9 # lpf (range 10000 12000 $ slow 5 sine),
     s "<cym ~ ~ ~>" # hpf 6000 # gain 0.8 # speed 0.8,
     juxBy 0.5 (rev) $ sometimesBy 0.3 (fast 2) $ s "hts*8" # n "<1 2 3 4 5>" # room 0.2 # hpf 6000 # gain 0.7]
 # cps (140/240)
 # orbit 1
 
-
 hush
-
 
 d1
 $ stack [
@@ -54,7 +52,7 @@ $ stack [
 
 hush
 
-xfadeIn 1 8
+d1
 $ stack [
     sometimes (stutWith 3 (0.125) (|* gain 0.8).(|* hpf 1.5).(|* speed 1.1)) $ s "[k2(3,8) ~]" # n 10 # gain 0.8 # lpf 600,
     loopAt 2 $ s "fx2/2" # n 3 # hpf 1000 # gain 0.8 # speed 0.5 # room 0.2,
@@ -90,7 +88,7 @@ $ stack [
     s "~fx2" # n "<12 15>" # room 0.2 # hpf 400,
     s "fx2/2" # n 7 # hpf 1000 # room 0.2,
     s "[~bs2/2]~" # n 2 # gain 1 # hpf 60,
-    s "k2 ~ ~ k2 ~ ~ k2 ~" # n "5 1 9" # lpf 2000 # gain 0.9 # hpf 30,
+    s "k2 ~ ~ k2 ~ ~ k2 ~" # n "5 1 9" # lpf 2000 # gain 0.9 # hpf 300,
     sometimesBy 0.3 (# speed "-1 -2") $ sometimes (stutWith 2 (1/8) (|* gain 0.9)) $ s "[snr2(3,8,<0 1 3>)]/2" # room 0.2 # n "1 5 8" # hpf 800 # gain 0.8
 ]
 # orbit 1
@@ -112,7 +110,7 @@ hush
 
 d1
 $ stack [
-    s "k2~~~~~k2~~~k2~~k2~~" # n 5 # lpf 1000 # lpq 0.1 # gain 0.9,
+    s "k2~~~~~k2~~~k2~~k2~~" # n 5 # # hpf 300 # lpf 1000 # lpq 0.1 # gain 0.9,
     s "hts*8" # n 3 # hpf 6000 # gain 0.8 |* gain "[0.9 1]*4",
     sometimes (stutWith "[2|3]" (0.125) (|* gain 0.8)) $ s "~cp" # n "<1 4>" # hpf 400 # gain 0.9,
     loopAt 2 $ chop 4 $ s "syn2 ~ [~syn2] ~" # gain 0.8 # n "7" # hpf 1000 # room 0.2 # delay 0.2
@@ -124,11 +122,11 @@ hush
 
 d1
 $ stack [
-    --s "~fx2(3,8,2)" # n 5 # hpf 400 # room 0.2 # gain 0.9,
+    s "~fx2(3,8,2)" # n 5 # hpf 400 # room 0.2 # gain 0.9,
     sometimesBy 0.3 (off 0.125 (|* gain 0.9)) $ s "[~snr2]*2" # gain 1.2 # room 0.2 # n 7 # speed 0.9 # hpf 400,
     s "hts*16" # n 3 # hpf 6000 # gain 1 |* gain "0.8 0.9 1 0.9" # room 0.2,
     every 8 (# hpf 300) $ s "k2(3,8)k2" # n "5" # gain 1 # hpf 30  #lpf 1000,
-    --slow 4 $ striate 128 $ s "rde" # n 7 # speed 2 # gain 1.2 # hpf 700 # room 0.2 # delay 0.3,
+    slow 4 $ striate 64 $ s "rde" # n 7 # speed 2 # gain 1 # hpf 2000 # room 0.2 # delay 0.3,
     s "<~cym~~~~~~>" # n 3 # hpf 6000 # gain 1.1 # room 0.2
 ]
 # orbit 1
@@ -136,9 +134,13 @@ $ stack [
 
 hush
 
-d1 $ stack [
+d1
+$ every 7 (# speed "1.1 1.2 1.1 1.3")
+$ every 6 (# crush 4)
+$ whenmod 8 6 (jux (iter 8))
+$ stack [
     s "cp*8" # hpf 700 # gain 0.75 # n (fast 8 "<4 1 5>") # room 0.2 # legato 1 # delay 0.2 # pan (range 0.3 0.7 $ slow 3 sine),
-    s "kcks(3,8)" # n "[3,5]" # gain 1.2 # lpf 1000,
+    s "kcks(3,8)" # n "[3]" # gain 1.2 # lpf 1000 # hpf 30,
     s "hts*16" # gain 1 # n (fast 4 "<1 3>") # hpf 6000 # pan 0.6 # room 0.2,
     s "~hts*4" # n 2 # hpf 6000 # room 0.2 # pan 0.4,
     slow 2 $ up "0 ~ ~ 3" # s "bs2" # n 0 # gain 0.9 # legato 2 # hpf 60
@@ -150,8 +152,7 @@ hush
 
 d1
 $ stack [
-    juxBy 0.5 (# delay 0.1) $ slow 4 $ striate 16 $ s "rde/2" # n "7" # speed "1" # gain 0.9 # room 0.2 # hpf 1000,
-    fast 2 $ s "kcks ~ ~ kcks/2" # n 3 # gain 1.1 # lpf 1000 # hpf 30,
+    fast 2 $ s "kcks ~ ~ kcks/2" # n 3 # gain 1.1 # lpf 1000 # hpf 300,
     s "~[hts(3,8)]/2" # n 2 # hpf 6000 # room 0.2 # gain 1,
     s "hts*8" # n 1 # hpf 6000 # room 0.2 # gain 0.9 |* gain "[0.9 1]*4",
     sometimes (off 0.25 (|* gain 0.8)) $ s "~snr:2~~~snr:7~~" # hpf 400 # room 0.2 |* gain "0.85 1"
@@ -162,11 +163,12 @@ $ stack [
 hush
 
 d1
+$ every 6 ((# crush 4).(# hpf 120).(|* gain 0.9))
 $ stack [
     s "hts*16" # n "<2 3 3>" # hpf 6000 # room 0.2 # gain 0.9 |* gain "[0.9 1]*4",
     s "~~[~snr2:1] ~~~ snr2:3" # hpf 400 # room 0.2,
-    s "k2 k2 ~ k2 ~" # n 3 # lpf 1000,
-    slow 2 $ s "bs2 ~ bs2 ~" # legato 0.2 # gain 0.8 # n 1 # hpf 60
+    s "k2 k2 ~ k2 ~" # n 3 # lpf 1000 # hpf 400,
+    slow 2 $ s "bs2 ~ bs2 ~" # legato 0.2 # gain 0.8 # n 1 # hpf 300
 ]
 # orbit 1
 # cps (140/240)
@@ -174,14 +176,15 @@ $ stack [
 hush
 
 d1
-$ every 6 ((# crush 2).(# hpf 120).(|* gain 0.9))
+$ every 6 ((# crush 4).(# hpf 120).(|* gain 0.9))
+$ whenmod 8 6 (jux (iter 8))
 $ stack [
     s "~snr2" # n "<1 3>" # hpf 400 # room 0.2,
     sometimes (# speed "-2") $ s "snr2(3,8)" # n 7 # gain 0.8 # hpf 500 # room 0.2,
     s "hts*8" # n "<3 2 4>" # hpf 6000 # gain 0.7 |* gain "[0.9 1]*4" # room 0.2,
     loopAt 2 $ s "syn2" # n "<5 [5,8]>" # delay 0.2 # speed "[0.5,1]" # hpf 1200 # gain 0.5 # room 0.2 # lpf (range 6000 12000 $ slow 3 sine),
     s "~~~~~tom~tom?" # n "<8 8 6>" # legato 0.3 # hpf 100 # gain 0.85,
-    s  "kcks(3,8)~" # n "[3,8]" # gain 0.9 |* gain "1 0.9" # lpf 1000
+    s  "kcks(3,8)~" # n "[3,8]" # gain 0.9 |* gain "1 0.9" # lpf 1000 # hpf 300
 ]
 # cps (140/240)
 # orbit 1
@@ -189,12 +192,52 @@ $ stack [
 hush
 
 d1
+$ every 12 ((# crush 4).(# hpf 120).(|* gain 0.9))
+$ whenmod 8 6 (jux (iter 8))
+$ every 5 (# speed "1.1 1.2 1.1 1.3")
 $ stack [
-    slow 2 $ s "syn2(3,8)~" # n "<3 5>" # speed 0.85 # hpf 700 # gain 0.7,
+    slow 2 $ s "syn2(3,8)~" # n "<3 5>" # speed 0.85 # hpf 700 # gain 0.7 # lpf (range 1000 12000 $ slow 12 sine),
     sometimesBy 0.4 (off 0.125 (|* gain 0.9)) $ s "~snr2" # n "<3 3 1 5 8>" # hpf 200 # gain 0.9,
     up "~<0 3 2>~~" # s "bs2" # n 0 # gain 0.8,
     s "k2",
     s "hts*8" # n "<2 4>" # hpf 6000 # gain 0.6 # room 0.2
 ]
+# orbit 1
+# cps (140/240)
+
+
+hush
+
+d1
+$ stack [
+    s "[~ hts]*4" # n "<1 2 3>" # hpf 6000 # legato "<0.2 0.3>" # room 0.2,
+    s "hts*16" # n "<4 5 6>" # hpf 6000 # gain 0.9 |* gain "[0.8 0.9 1 0.9]*4" # legato 0.5,
+    s "kcks*4" # n "<2>",
+    sometimesBy 0.8 (stutWith "[2|3]" (choose [0.0625]) (|* gain 0.85)) $ s "snr2" # n "<0 3>" # hpf 500 # gain 0.9 # room 0.2
+]
+# orbit 1
+# cps (130/240)
+
+hush
+
+xfadeIn 1 8
+$ iter 4 $ foldEvery [3,4] (0.25 <~)
+$ stack [
+    whenmod 10 5 (const $ s "~") $ s "{gc1:7 ~ gc5:1/3}%8" # speed "1",
+    s "{k3:3 [~ k3:2] ~ ~ k3*2 ~ k3:2*4}%4" # hpf 30,
+    slowspread (slow) [(4/3), (8/3)] $ whenmod 12 6 (# gain "0") $
+    stut 4 0.25 0.25 $ sound "{hts ~ ~}%16" # gain "0.75",
+    whenmod 7 4 (jux (# speed "[-1 -2]*3")) $ whenmod 5 3 (stut 4 0.25 0.25) $
+    sound "{~ [~ sn3:1] ~ hts:2*2 pc2:4*4}%4" # shape "0.3"
+]
+# cps (140/240)
+# orbit 1
+
+
+hush
+
+
+d1
+$ slow 8 $ s "k3" <| n (run 50)
 # orbit 1
 # cps (140/240)

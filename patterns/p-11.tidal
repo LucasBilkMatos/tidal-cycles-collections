@@ -9,15 +9,15 @@ d1
   $ fast 3
   $ s "[pec|toml|kcks]"
   # n (irand 32)
-  # speed (1 + saw)
+  # speed (range 1 3 $ slow 3 sine)
   # gain 1.1
   # room 0.6
   # size 0.2
   # delay 0.2
   # distort 0.1
-  # hpf 60
+  # hpf 300
   # lpf 20000
   # cut (choose [10, 100, 600])
-  # cps (slow 6 $ 0.6 + saw)
+  # cps (140/240)
   # gain 0.9
   # orbit 1
