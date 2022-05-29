@@ -1,5 +1,6 @@
 hush
 
+
 d3
 $ every 12 ((# crush 4).(# hpf 120).(|* gain 0.9))
 $ every 3 ((# distort 0.4).(# delay 0.2))
@@ -10,8 +11,9 @@ $ stack [
 # orbit 1
 # cps (140/240)
 
+hush
 
-xfadeIn 1 32
+d1
 $ every 6 ((# crush 4).(# hpf 120).(|* gain 0.9))
 $ whenmod 8 6 (jux (iter 8))
 $ stack [
@@ -38,26 +40,26 @@ $ stack [
         $ loopAt 2
         $ chop 4
         $ s "[sn3:9]/4[pec:<4 6 5>/2, snr:7/3]"
-        # gain 0.9
+        # gain 0.8
         # hpf 500
         # room 0.2
         # pan (slow 7 $ range 0.6 0.4 sine),
-    sometimes (# speed "-2")
+    sometimes ((# speed "-2").(|* gain 0.9))
         $ s "~~~~~tom/2~~"
         # n "<10 12 11>"
         # speed (range 1 2 $ slow 2 sine)
-        # gain 0.9
-        # hpf 90
+        # gain 0.8
+        # hpf 300
         # lpf (range 3000 500 $ slow 7 sine)
         # pan 0.5,
     sometimesBy 0.2 (stutWith (choose [2, 3]) (0.0625) (|* gain 0.85).(|* hpf 1.5))
         $ off 0.5 ((# n "1 2 10").(|* gain 0.85).(|* hpf 1.2))
-        $ s "[kcks:6(3,8)]"
+        $ s "[kcks:6(3,8)~]"
         # gain 0.9
         # lpf 3000
         # hpf 30,
     s "cym/4"
-        # gain 0.7
+        # gain 0.8
         # n 6
         # hpf 3500
         # lpf 20000
@@ -78,35 +80,23 @@ $ stack [
 # orbit 1
 
 
-d1
-$ whenmod 8 6 (jux (iter 8))
-$ stack [
-    sometimesBy 0.3 (off 0.125 (|* gain 0.9)) $ s "[~snr2]*2" # gain 1 # room 0.2 # n 7 # speed 0.9 # hpf 400,
-    s "hts*16" # n 3 # hpf 6000 # gain 0.8 |* gain "0.8 0.9 1 0.9" # room 0.2,
-    every 16 (# hpf 300) $ s "k2(3,8)k2" # n "5" # gain 0.9 # hpf 30  #lpf 1000,
-    slow 8 $ degradeBy 0.2 $ striate 128 $ s "rde" # n "<2 7 4>" # speed 2 # gain 0.8 # hpf 2000 # room 0.2 # delay 0.3 # shape 0.2,
-    s "<~cym~~~~~~>" # n 3 # hpf 6000 # gain 1 # room 0.2
-]
-# orbit 1
-# cps (140/240)
-
-
-d2
+d3
 $ iter 4 $ foldEvery [3,4] (0.25 <~)
 $ stack [
-    whenmod 10 5 (const $ s "~") $ s "{gc1:7 ~ gc5:1/3}%8" # gain 0.9 # speed "1",
+    whenmod 10 5 (const $ s "~") $ s "{gc1:2 ~ gc1:1/3}%8" # gain 0.9 # speed "2 1" # hpf 400,
     s "{k3:3 [~ k3:2] ~ ~ k3*2 ~ k3:2*4}%4" # hpf 300 # gain 0.8,
     slowspread (slow) [(4/3), (8/3)] $ whenmod 12 6 (# gain "0") $
-    stut 4 0.25 0.25 $ sound "{hts ~ ~}%16" # gain 0.75,
+    stut 4 0.25 0.25 $ sound "{hts ~ ~}%16" # gain 0.75 # hpf 3000,
     whenmod 7 4 (jux (# speed "[-1 -2]*3")) $ whenmod 5 3 (stut 4 0.25 0.25) $
-    sound "{~ [~ sn3:1] ~ hts:2*2 pc2:4*4}%4" # shape "0.3" # gain 0.8
+    sound "{~ [~ sn3:1] ~ hts:2*2 pec:2*4}%4" # shape "0.3" # gain 0.75 # hpf 400
 ]
 # cps (140/240)
 # orbit 1
 
 
+hush
 
-xfadeIn 3 32
+d3
 $ every 16 (# hpf 300)
 $ every 6 (chop 4)
 $ whenmod 8 6 (jux (iter 8))
@@ -116,9 +106,9 @@ $ stack [
         $ sometimesBy 0.1 (# speed "-2")
         $ s "[kcks(3,8)]"
         # n ("[3|1]")
-        # hpf 300
+        # hpf 400
         # lpf 2500
-        # gain 1
+        # gain 0.9
         # legato 0.7,
     sometimesBy 0.3 (jux (rev))
         $ degradeBy 0.3
@@ -131,16 +121,17 @@ $ stack [
         # legato 0.7
         # pan (range 0.4 0.6 $ slow 3 sine),
     slow 8
+        $ sometimesBy 0.6 (# vowel "o i")
         $ sometimes (# speed "-2")
         $ degradeBy 0.2
         $ striate 128
-        $ s "rde" # n "<2 4>"
+        $ s "rde" # n "<2>"
         # hpf 1000
-        # lpf 10000
+        # lpf 18000
         # delay 0.3
         # gain 0.8
         # shape 0.2
-        # speed 4
+        # speed "<2>"
         # room 0.3
         # pan (range 0.6 0.4 $ slow 3 sine),
     sometimes (fast 2)
