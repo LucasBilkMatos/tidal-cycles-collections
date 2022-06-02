@@ -1,0 +1,15 @@
+voronoi(16)
+  .modulateScale(osc(8).rotate(Math.sin(time)*10),10)
+  .thresh(.8)
+  .modulateRotate(osc(8),.2)
+  .thresh(.8)
+  .diff(src(o0).scale(.2))
+  .modulateScale(osc(8).modulateRotate(o0, 10))
+  .diff(src(o0).rotate([.001, -.002, .5]).scrollY(0,[-0.001, -1].fast(1)))
+  .scale(.4)
+  .brightness([.01,-.07].smooth().fast(.5))
+  .out()
+
+hush()
+bpm = 140
+a.hide()
