@@ -10,6 +10,9 @@ $ stack  [
 # cps 0.55
 # orbit 1
 
+
+
+
 hush
 
 d1
@@ -236,8 +239,18 @@ $ stack [
 
 hush
 
-
 d1
-$ slow 8 $ s "k3" <| n (run 50)
-# orbit 1
+$ every 5 (# crush 4)
+$ every 3 (chunk 4 (hurry 2))
+$ stack [
+    stutWith "1 2" (0.125) (|* gain 0.85) $ s "k2*2" # cut 2,
+    s "hts*16" # n 3 # hpf 2000 # gain 0.8 |* gain (0.8 + perlin/4)  # legato 0.2 # room 0.2,
+    (0.01 <~) $ s "{pec:1 pec:2 pec:2}%4" # hpf 400 # room 0.2,
+    s "bs2 ~~ bs2" # up "0 ~ ~ <0 3>" # n 2 # cut 1,
+    s "syn2" # n "[<5 7>,3]" # gain 0.7 # up "<0 3 0 7>" # room 0.2,
+    sometimesBy 0.2 (stutWith 2 (0.125) (|* gain 0.85)) $ s "~snr2" # n "<2 5>" # hpf 400 # room 0.2
+]
 # cps (140/240)
+# orbit 0
+
+hush
