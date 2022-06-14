@@ -155,12 +155,12 @@ hush
 
 d1
 $ stack [
-    fast 2 $ s "kcks ~ ~ kcks/2" # n 3 # gain 1.1 # lpf 1000 # hpf 300,
+    fast 2 $ s "kcks ~ ~ kcks/2" # n 3 # gain 1.1 # lpf 1000 # hpf 30,
     s "~[hts(3,8)]/2" # n 2 # hpf 6000 # room 0.2 # gain 1,
     s "hts*8" # n 1 # hpf 6000 # room 0.2 # gain 0.9 |* gain "[0.9 1]*4",
     sometimes (off 0.25 (|* gain 0.8)) $ s "~snr:2~~~snr:7~~" # hpf 400 # room 0.2 |* gain "0.85 1"
 ]
-# orbit 0
+# orbit 1
 # cps (140/240)
 
 hush
@@ -173,7 +173,7 @@ $ stack [
     s "k2 k2 ~ k2 ~" # n 3 # lpf 1000 # hpf 400,
     slow 2 $ s "bs2 ~ bs2 ~" # legato 0.2 # gain 0.8 # n 1 # hpf 300
 ]
-# orbit 0
+# orbit 1
 # cps (140/240)
 
 hush
@@ -190,7 +190,7 @@ $ stack [
     s  "kcks(3,8)~" # n "[3,8]" # gain 0.9 |* gain "1 0.9" # lpf 1000 # hpf 300
 ]
 # cps (140/240)
-# orbit 0
+# orbit 1
 
 hush
 
@@ -205,7 +205,7 @@ $ stack [
     s "k2",
     s "hts*8" # n "<2 4>" # hpf 6000 # gain 0.6 # room 0.2
 ]
-# orbit 0
+# orbit 1
 # cps (140/240)
 
 
@@ -245,16 +245,15 @@ $ qtrigger 1
 $ every 7 ((# crush 4).(# delay 0.3))
 $ every 3 (chunk 4 (hurry 2).(|* gain 0.9))
 $ stack [
-    every 2 (stutWith 2 (0.125) (|* gain 0.85)) $ s "k2(3,8)" # n "<3 5>" # cut 2 # lpf 3000,
+    every 2 (stutWith 2 (0.125) (|* gain 0.85)) $ s "k2(3,8)" # n "<3 5>" # cut 2 # lpf 2000,
     degradeBy 0.2 $ s "hts*16" # n "<3 5>" # hpf 2000 # gain 0.8 |* gain (0.8 + perlin/4)  # legato 0.2 # room 0.2,
     s "{pec:6 pec:2 pec:2}%4" # hpf 400 # room 0.2,
     s "bs2 ~~ bs2" # up "0 ~ ~ <3 5>" # gain 0.9 # n 46 # cut 1,
     striate 16 $ s "syn2/4" # n "[13,27]" # shape 0.2 # gain 0.9 # up "0" # speed 0.5 # room 0.2 # hpf 400 # delay 0.3,
     sometimesBy 0.1 (|* speed "-1") $ sometimesBy 0.2 (stutWith 2 (0.125) (|* gain 0.85)) $ s "~snr2" # n 12 # gain 1.1 # hpf 500 # room 0.2
 ]
-# distort 0.1
 # cps (140/240)
-# orbit 1
+# orbit 0
 
 hush
 
@@ -263,29 +262,65 @@ $ qtrigger 1
 $ stack [
     sometimesBy 0.2 (|* speed "-1") $ s "~ [~cp] ~ cp" # n "8 1" # hpf 600 # gain 1,
     s "{pec:1 ~ ~}%4" # speed 0.5 # gain 0.9 # hpf 400 # room 0.3,
-    every 4 (stutWith 2 (0.125) (|* gain 0.9)) $ s "k2 ~ [~k2/2] k2/4" # cut 777 # n 5 # crush "4 8" # hpf 20,
+    every 4 (stutWith 2 (0.125) (|* gain 0.9)) $ s "k2 ~ [~k2/2] k2/4" # cut 777 # n 5 # hpf 20,
     degradeBy "<0.7 0.9>" $ superimpose((# speed "<1.5 2>").(|* gain 0.8)) $ s "syn2*8" # speed "[0.5,1]" # n "[27,7]" # room 0.2 # delay 0.2 # cut 1 # hpf 600 # gain 0.9,
-    s "bs2 ~~[bs2/2~]",
+    s "bs2 ~~[bs2/2~]" # n 0 # gain 1,
     s "hts*8" # n "5 8" # legato 0.15 # gain (0.8 + perlin/4) # hpf 5000 # room 0.2
 ]
 # orbit 0
 # cps (140/240)
-# distort 0.1
 
 
 hush
 
 d1
+$ qtrigger 1
 $ stack [
-    s "gc1(3,8,2)" # n 30 # room 0.3 # delay 0.2 # crush 4 # shape 0.2 # hpf 600,
-    s "[k2 ~ [~k2] ~]" # n 4 # lpf 1200 # gain 1.1 |* gain "1 0.95" # cut 111,
-    s "hts*8" # n 1 # hpf 6000,
+    s "gc1(3,8,2)" # n "<4 8 5>" # room 0.3 # delay 0.2 # crush 4 # shape 0.2 # hpf 600 # gain 0.9,
+    s "k2(2,5)" # n 5 # lpf 1200 # gain 1.1 |* gain "1 0.95",
+    s "hts*16" # n 1 # hpf 6000,
     fast 4 $ s "~ hts" # room 0.2,
-    sometimesBy 0.4 (stutWith "<2 3>" (0.125) (|* gain 0.9) ) $ s "{pec:13 ~ ~}%8" # up "-12" # gain 1 # room 0.2 # hpf 600,
+    sometimesBy 0.4 (stutWith "<2 3>" (0.125) (|* gain 0.9) ) $ s "{pec ~ ~}%8" # n 7 # legato (range 0.1 2 $ slow 3 saw) # gain 1.1 # room 0.2 # hpf 600,
     s "~ snr2 ~ snr2" # n 8 # gain 1.1 # room 0.2,
-    slow 2 $ s "bs2(3,8,1)" # n 6 # gain 1.2 # cut 111
+    s "[~bs2] ~ bs2 [~bs2/2]" # n 4 # gain 1.1
 ]
 # orbit 0
 # cps (145/240)
 
 hush
+
+d1
+$ every 7 (# crush 6)
+$ stack [
+    s "k2~~[~k2/2]",
+    s "~ k2*<12 0 5>" # hpf 90 # lpf 1000 # gain 0.85 # cut 22,
+    degradeBy 0.1 $ sometimes (|* speed "-2") $ sometimesBy 0.3 (# crush 4) $ stutWith 3 (0.0625) (|* gain 0.85) $ s "~snr2*8"  # hpf 600 # n "<7 8 9>" # gain 0.7 # legato 0.2 # room 0.3,
+    s "~[~fx2]" # n "<25 15 14>" # gain 0.9 # speed "[1,4]" # cut 1 # hpf 240 # room 0.2,
+    s "~hts*<4 2 1>~~" # n 3 # speed "0.5" # legato 8 # gain 0.8 # hpf 1000 # room 0.2,
+    degradeBy 0.2 $ s "ekt*8" # n 5 # cut 777 # up "0" # gain 0.65 |* gain "1 0.95" # room 0.2 # delay 0.2 # hpf 60
+]
+# cps (140/240)
+# orbit 0
+
+
+hush
+
+
+
+d1
+$ qtrigger 1
+$ stack [
+    brak $ slow 2 $ s "cp*1 cp*2 cp*3 cp*4" # n 1 # room 0.2  # cut 111 # hpf 400,
+    s "~snr2" # n 12 # hpf 600 # gain 1.2,
+    every 7 ((fast "32 8").(|* gain 0.9)) $ s "k3" # n 7 # lpf 1000 # cut 111,
+    s "{ekt:5~~}%4" # hpf 60 # gain 0.9,
+    s "gc1*16" # n "<10 11 7>" # hpf 400 # room 0.3 # gain 1.2,
+    sometimes (rev) $ brak $ s "fx2*<16 32 4>" # n "<10 13 14>" # hpf 600 # room 0.2 # cut 333 # delay 0.2 # distort 0.2
+]
+# cps (140/240)
+# orbit 0
+
+
+
+
+d1 $ brak $ s "[k2 k2:3, hts:3 hts:2 hts:4 hts:1]"

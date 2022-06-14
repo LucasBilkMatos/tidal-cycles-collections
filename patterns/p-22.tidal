@@ -1,0 +1,52 @@
+let m p = (const $s "~") p
+
+d1
+$ qtrigger 1
+$ stack [
+    brak $ slow 2 $ s "cp*1 cp*2 cp*3 cp*4" # n 1 # room 0.2  # cut 111 # hpf 400,
+    s "~snr2" # n 12 # hpf 600 # gain 1.2,
+    every 7 ((fast "32 8").(|* gain 0.9)) $ s "k3" # n 7 # lpf 1000 # cut 111,
+    s "{ekt:5~~}%4" # hpf 60 # gain 0.9,
+    s "gc1*16" # n "<10 11 7>" # hpf 400 # room 0.3 # gain 1.2,
+    sometimes (rev) $ brak $ s "fx2*<16 32 4>" # n "<10 13 14>" # hpf 600 # room 0.2 # cut 333 # delay 0.2 # distort 0.2
+]
+# cps (140/240)
+# orbit 1
+
+hush
+
+d1
+$ stack [
+    every 7 ((fast "32 8").(|* gain 0.8)) $ brak  $ s "k3" # n 7 # lpf 1000 # cut 111 # gain 1,
+    s "{ekt:5~~}%4" # hpf 60 # gain 0.8,
+    sometimes ((# crush 4).(|* gain 0.9)) $ brak $ s "fx2*<16 32 4>" # n "<7 ~ 13 ~ 10 ~ ~>" # gain 1.1 # hpf 700 # room 0.2 # cut 333 # distort 0.2,
+    s "~snr2/2" # n 12 # hpf 600 # gain 1.1,
+    s "syn2/2" # n 3 # gain 0.5 # hpf 600 # room 0.2 # lpf 3000
+]
+# orbit 1
+# cps (140/240)
+
+hush
+
+d1
+$ stack [
+    every 6 ((fast "32 8").(|* gain 0.9)) $ s "k3" # n 7 # lpf 1000 # cut 111 # orbit 0,
+    s "{ekt:5~~}%4" # hpf 60 # gain 0.9 # orbit 0,
+    every 3 (# gain 0) $ s "gc1*16" # n "<10 11 7>" # hpf 400 # room 0.3 # gain 1,
+    s "~snr/2" # n 10 # hpf 600 # gain 1.1 # orbit 0,
+    s "syn2/2" # n 3 # gain 0.8 # hpf 600 # room 0.2 # lpf 3000
+]
+# orbit 1
+# cps (140/240)
+
+hush
+
+
+d2 silence
+$ stack [
+    fast "<2 8 16>" $ brak $ s "fx2" # n "[11|12|13|15|15|16|17|18|19|20]" # cut 111 # hpf 500 # lpf 1000 # speed 0.5 # room 0.2,
+    s "bs2",
+    s "syn2/2" # n 3 # gain 0.8 # hpf 600 # room 0.2 # lpf 3000
+]
+# orbit 1
+# cps (140/240)
