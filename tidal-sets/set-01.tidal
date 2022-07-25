@@ -101,6 +101,12 @@ hush
 
 
 -- composition
+let p1 = "a1 a2 a3!2 a4 a5!2 a6"
+    p2 = "b1 b2 b3 b4 b5 b6!2 b7"
+    p3 = "c1 c2 c3 c4 c5 c4 c4 c6"
+    p4 = "d1 d2 d3 d4 d3 d4 d5 d6"
+    p5 = "e1 e2 e3 e4 e5 e4 e5 e6"
+
 
 let pats =
       [
@@ -110,7 +116,7 @@ let pats =
             $ stack[
                 s "kcks" # n 1 # orbit 2 # lpf 1000 # hpf 300,
                 s "bs(3,8)" # n 2 # orbit 3 # cut 111 # gain 0.5,
-                s "{pc2~~~~~~}%8" # n 1 # hpf 400 # orbit 1 # gain 1 # room 0.2 # speed 1
+                s "{pc2~~~~~~}%8" # n 1 # hpf 400 # orbit 1 # gain 0.9 # room 0.2 # speed 1
                 -- ,whenmod 8 7 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1.2 # room 0.2
                 -- ,s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.8
                 -- ,s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 1 # n 2
@@ -132,7 +138,7 @@ let pats =
             $ stack[
                 whenmod 8 7 (fast "1 1 1 2".(# hpf 240).(|* gain 0.9)) $ s "kcks*2" # n 1 # orbit 2 # lpf 1000 # hpf 300,
                 s "bs(3,8)" # n 2 # orbit 3 # cut 111 # gain 0.5,
-                s "{pc2~~~~~~}%8" # n 1 # hpf 400 # orbit 1 # gain 1 # room 0.2 # speed 1,
+                s "{pc2~~~~~~}%8" # n 1 # hpf 400 # orbit 1 # gain 0.9 # room 0.2 # speed 1,
                 -- ,whenmod 8 7 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1.2 # room 0.2
                 -- s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.8,
                 -- s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 1 # n 2,
@@ -154,7 +160,7 @@ let pats =
             $ stack[
                 whenmod 8 7 (fast "1 1 2 4".(# hpf 240).(|* gain 0.9)) $ s "kcks*2" # n 1 # orbit 2 # lpf 1000 # hpf 30,
                 s "bs(3,8)" # n 2 # orbit 3 # cut 111 # gain 0.5,
-                s "{pc2~~~~~~}%8" # n 1 # hpf 400 # orbit 1 # gain 1 # room 0.2 # speed 1,
+                s "{pc2~~~~~~}%8" # n 1 # hpf 400 # orbit 1 # gain 0.9 # room 0.2 # speed 1,
                 whenmod 8 7 (fast "2 4") $ s "[~sn3]~" # n 3 # hpf 400 # orbit 1 # gain 1.2 # room 0.2,
                 -- s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.8,
                 -- s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 1 # n 2,
@@ -176,7 +182,7 @@ let pats =
             $ stack[
                 whenmod 8 7 (fast "1 1 2 4".(# hpf 240).(|* gain 0.9)) $ s "kcks*4" # n 1 # orbit 2 # lpf 1000 # hpf 30,
                 s "bs(3,8)" # n 2 # orbit 3 # cut 111 # gain 0.5,
-                s "{pc2~~~~~~}%8" # n 1 # hpf 400 # orbit 1 # gain 1 # room 0.2 # speed 1,
+                s "{pc2~~~~~~}%8" # n 1 # hpf 400 # orbit 1 # gain 0.9 # room 0.2 # speed 1,
                 whenmod 8 7 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1.2 # room 0.2,
                 -- s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.8,
                 -- s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 1 # n 2,
@@ -197,7 +203,7 @@ let pats =
             $ stack[
                 whenmod 8 7 (fast "1 1 2 4".(# hpf 240).(|* gain 0.9)) $ s "kcks*4" # n 1 # orbit 2 # lpf 1000 # hpf 30,
                 s "bs(3,8)" # n 2 # orbit 3 # cut 111 # gain 0.5,
-                s "{pc2~~~~~~}%8" # n 1 # hpf 400 # orbit 1 # gain 1 # room 0.2 # speed 1,
+                s "{pc2~~~~~~}%8" # n 1 # hpf 400 # orbit 1 # gain 0.9 # room 0.2 # speed 1,
                 whenmod 8 7 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1.2 # room 0.2,
                 s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.8,
                 s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 1 # n 2,
@@ -218,7 +224,7 @@ let pats =
             $ stack[
                 whenmod 8 7 (fast "1 1 2 4".(# hpf 240).(|* gain 0.9)) $ s "kcks*4" # n 1 # orbit 2 # lpf 1000 # hpf 300,
                 s "bs(3,8)" # n 2 # orbit 3 # cut 111 # gain 0.5,
-                s "{pc2~~~~~~}%8" # n 1 # hpf 400 # orbit 1 # gain 1 # room 0.2 # speed 1,
+                s "{pc2~~~~~~}%8" # n 1 # hpf 400 # orbit 1 # gain 0.9 # room 0.2 # speed 1,
                 whenmod 8 7 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1.2 # room 0.2,
                 s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.8,
                 s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 1 # n 2,
@@ -234,7 +240,7 @@ let pats =
                     # orbit 1 # shape 0.2
         ]),
         ("b1",
-            whenmod 8 6 (# crush 4)
+            whenmod 8 7 (# crush 4)
             $ whenmod 16 15 (hurry 2)
             $ stack[
                   s "k2*4" # n 1 # gain 0.8 # shape 0.2 # orbit 2 # hpf 30,
@@ -300,7 +306,7 @@ let pats =
                   s "[~hts]*4" # n 2 # hpf 6000 # room 0.2 # orbit 4,
                   -- s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.7,
                   slow 8 $ s "cym" # hpf 3000 # room 0.3 # orbit 4 # gain 0.9,
-                  s "sn3" <| n (run "8 16/2" + 6) # hpf 400 # orbit 1 # vowel "<i u a>"
+                  s "sn3" <| n (run "8 16/2" + 6) # hpf 400 # orbit 1 # vowel "<i u a>" # gain 0.9
         ]),
         ("b6",
             whenmod 8 6 (# crush 4)
@@ -314,7 +320,7 @@ let pats =
                   s "[~hts]*4" # n 2 # hpf 6000 # room 0.2 # orbit 4,
                   s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.7,
                   slow 8 $ s "cym" # hpf 3000 # room 0.3 # orbit 4 # gain 0.9,
-                  s "sn3" <| n (run "8 16/2" + 6) # hpf 400 # orbit 1 # vowel "<i u a>"
+                  s "sn3" <| n (run "8 16/2" + 6) # hpf 400 # orbit 1 # vowel "<i u a>" # gain 0.9
         ]),
         ("b7",
             whenmod 8 6 (# crush 4)
@@ -328,7 +334,7 @@ let pats =
                   s "[~hts]*4" # n 2 # hpf 6000 # room 0.2 # orbit 4,
                   s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.7,
                   slow 8 $ s "cym" # hpf 3000 # room 0.3 # orbit 4 # gain 0.9,
-                  s "sn3" <| n (run "8 16/2" + 6) # hpf 400 # orbit 1 # vowel "<i u a>"
+                  s "sn3" <| n (run "8 16/2" + 6) # hpf 400 # orbit 1 # vowel "<i u a>" # gain 0.9
         ]),
         ("c1",
             whenmod 16 15 (hurry 2)
@@ -411,7 +417,7 @@ let pats =
         ("d1",
             whenmod 8 6 (# crush 6)
             $ stack[
-              whenmod 8 7 (# hpf 240) $ s "k2*4" # n 2 # gain 0.9 # shape 0.2 # orbit 2 # hpf 30,
+              whenmod 8 7 (# hpf 240) $ s "k2*2" # n 2 # gain 0.9 # shape 0.2 # orbit 2 # hpf 30,
               -- whenmod 16 15 (fast "2 8") $ s "[~sn3]*2" # n 5 # hpf 300 # room 0.2 # orbit 1 # gain 1.1,
               whenmod 8 7 (# hpf 300) $ s "bs2(3,8)" # n 3 # orbit 3 # hpf 60 # gain 0.9,
               s "{fx2 ~ ~ ~ ~ }%8" # n "<12>" # speed 1 # cut 223 # hpf 400 # room 0.2 # gain 1.1 # orbit 1,
@@ -476,7 +482,7 @@ let pats =
         ("d6",
             whenmod 8 6 (# crush 6)
             $ stack[
-              whenmod 8 7 (# hpf 240) $ s "k2*4" # n 2 # gain 0.9 # shape 0.2 # orbit 2 # hpf 300,
+              whenmod 8 7 (fast "1 4".(# hpf 240)) $ s "k2*4" # n 2 # gain 0.9 # shape 0.2 # orbit 2 # hpf 300,
               whenmod 16 15 (fast "2 4") $ s "[~sn3]*2" # n 5 # hpf 300 # room 0.2 # orbit 1 # gain 1.1,
               s "bs2(3,8)" # n 3 # orbit 3 # hpf 300 # gain 0.9,
               s "{fx2 ~ ~ ~ ~ }%8" # n "<12>" # speed 1 # cut 223 # hpf 400 # room 0.2 # gain 1.1 # orbit 1,
@@ -489,98 +495,98 @@ let pats =
         ("e1",
             whenmod 8 7 (# crush 6)
             $ stack[
-                whenmod 8 7 (fast "1 1 2 4".(# hpf 120).(|* gain 0.9)) $ s "kcks*4" # n 2 # orbit 2 # hpf 30,
-                whenmod 16 15 (# hpf 200) $ s "bs(3,8)" # n 2 # orbit 3 # hpf 60 # cut 111 # gain 0.5,
+                whenmod 8 7 (fast "1 1 2 4".(# hpf 120).(|* gain 0.9)) $ s "kcks*4" # n 2 # orbit 2 # hpf 30 # gain 0.9,
+                whenmod 16 15 (# hpf 200) $ s "bs(3,8)" # n 2 # orbit 3 # hpf 60 # cut 111 # gain 0.6,
                 -- s "{pc2~~~~~~}%8" # n 10 # hpf 400 # orbit 1 # gain 1.2 # room 0.2 # speed 0.9,
                 -- whenmod 16 15 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1.2 # room 0.2,
                 -- s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.8,
                 -- s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 0.9 # n 2,
                 slow 8 $ s "cym" # hpf 6000 # room 0.2 # orbit 4 # gain 0.9,
-                fast "2 4" $ s "fx2*4" # n "15 12" # speed "0.5" # hpf 300 # orbit 1 # room 0.3 # gain 0.8
+                fast "2 4" $ s "fx2*4" # n "15" # speed "0.5" # hpf 600 # orbit 1 # room 0.3 # gain 1.1
                 -- fast "2 4" $ s "fx2*4" # n "15 <12 4>" # speed "0.5 1.5" # hpf 300 # orbit 1 # room 0.3
             ]
         ),
         ("e2",
             whenmod 8 7 (# crush 6)
             $ stack[
-                whenmod 8 7 (fast "1 1 2 4".(# hpf 120).(|* gain 0.9)) $ s "kcks*4" # n 2 # orbit 2 # hpf 30,
-                whenmod 16 15 (# hpf 200) $ s "bs(3,8)" # n 2 # orbit 3 # hpf 60 # cut 111 # gain 0.5,
+                whenmod 8 7 (fast "1 1 2 4".(# hpf 120).(|* gain 0.9)) $ s "kcks*4" # n 2 # orbit 2 # hpf 30 # gain 0.9,
+                whenmod 16 15 (# hpf 200) $ s "bs(3,8)" # n 2 # orbit 3 # hpf 60 # cut 111 # gain 0.6,
                 -- s "{pc2~~~~~~}%8" # n 10 # hpf 400 # orbit 1 # gain 1.2 # room 0.2 # speed 0.9,
-                whenmod 16 15 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1.2 # room 0.2,
+                whenmod 16 15 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1 # room 0.2,
                 -- s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.8,
                 -- s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 0.9 # n 2,
                 slow 8 $ s "cym" # hpf 6000 # room 0.2 # orbit 4 # gain 0.9,
-                fast "2 4" $ s "fx2*4" # n "15 12" # speed "0.75" # hpf 300 # orbit 1 # room 0.3 # gain 0.9
+                fast "2 4" $ s "fx2*4" # n "15 12" # speed "0.5" # hpf 600 # orbit 1 # room 0.3 # gain "1 0.8"
                 -- fast "2 4" $ s "fx2*4" # n "15 <12 4>" # speed "0.5 1.5" # hpf 300 # orbit 1 # room 0.3
             ]
         ),
         ("e3",
             whenmod 8 7 (# crush 6)
             $ stack[
-                whenmod 8 7 (fast "1 1 2 4".(# hpf 120).(|* gain 0.9)) $ s "kcks*4" # n 2 # orbit 2 # hpf 30,
-                whenmod 16 15 (# hpf 200) $ s "bs(3,8)" # n 2 # orbit 3 # hpf 60 # cut 111 # gain 0.5,
-                s "{pc2~~~~~~}%8" # n 10 # hpf 400 # orbit 1 # gain 1.1 # room 0.2 # speed 0.9,
-                whenmod 16 15 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1.2 # room 0.2,
+                whenmod 8 7 (fast "1 1 2 4".(# hpf 120).(|* gain 0.9)) $ s "kcks*4" # n 2 # orbit 2 # hpf 30 # gain 0.9,
+                whenmod 16 15 (# hpf 200) $ s "bs(3,8)" # n 2 # orbit 3 # hpf 60 # cut 111 # gain 0.6,
+                s "{pc2~~~~~~}%8" # n 10 # hpf 400 # orbit 1 # gain 0.9 # room 0.2 # speed 0.8,
+                whenmod 16 15 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1 # room 0.2,
                 -- s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.8,
                 s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 0.9 # n 2,
                 slow 8 $ s "cym" # hpf 6000 # room 0.2 # orbit 4 # gain 0.9,
-                fast "2 4" $ s "fx2*4" # n "15 12" # speed "0.5" # hpf 300 # orbit 1 # room 0.3 # gain 0.9
+                fast "2 4" $ s "fx2*4" # n "15 12" # speed "0.5" # hpf 600 # orbit 1 # room 0.3 # gain "1 0.9"
                 -- fast "2 4" $ s "fx2*4" # n "15 <12 4>" # speed "0.5 1.5" # hpf 300 # orbit 1 # room 0.3
             ]
         ),
         ("e4",
             whenmod 8 6 (# crush 6)
             $ stack[
-                whenmod 8 7 (fast "1 1 2 4".(# hpf 120).(|* gain 0.9)) $ s "kcks*4" # n 2 # orbit 2 # hpf 30,
-                whenmod 16 15 (# hpf 200) $ s "bs(3,8)" # n 2 # orbit 3 # hpf 60 # cut 111 # gain 0.5,
-                s "{pc2~~~~~~}%8" # n 10 # hpf 400 # orbit 1 # gain 1.1 # room 0.2 # speed 0.9,
-                whenmod 16 15 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1.2 # room 0.2,
+                whenmod 8 7 (fast "1 1 2 4".(# hpf 120).(|* gain 0.9)) $ s "kcks*4" # n 2 # orbit 2 # hpf 30 # gain 0.9,
+                whenmod 16 15 (# hpf 200) $ s "bs(3,8)" # n 2 # orbit 3 # hpf 60 # cut 111 # gain 0.6,
+                s "{pc2~~~~~~}%8" # n 10 # hpf 400 # orbit 1 # gain 0.9 # room 0.2 # speed 0.8,
+                whenmod 16 15 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1 # room 0.2,
                 s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.8,
                 s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 0.9 # n 2,
                 slow 8 $ s "cym" # hpf 6000 # room 0.2 # orbit 4 # gain 0.9,
                 -- fast "2 4" $ s "fx2*4" # n "15 12" # speed "0.5" # hpf 300 # orbit 1 # room 0.3 # gain 0.9
-                fast "2 4" $ s "fx2*4" # n "15 12" # speed "0.75" # hpf 300 # orbit 1 # room 0.3 # gain 1
+                fast "2 4" $ s "fx2*4" # n "15 12" # speed "0.75" # hpf 600 # orbit 1 # room 0.3 # gain "1 0.9"
             ]
         ),
         ("e5",
             whenmod 8 7 (# crush 6)
             $ stack[
-                whenmod 8 7 (fast "1 1 2 4".(# hpf 120).(|* gain 0.9)) $ s "kcks*4" # n 2 # orbit 2 # hpf 30,
-                whenmod 16 15 (# hpf 200) $ s "bs(3,8)" # n 2 # orbit 3 # hpf 60 # cut 111 # gain 0.5,
-                s "{pc2~~~~~~}%8" # n 10 # hpf 400 # orbit 1 # gain 1.1 # room 0.2 # speed 0.9,
-                whenmod 16 15 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1.2 # room 0.2,
+                whenmod 8 7 (fast "1 1 2 4".(# hpf 120).(|* gain 0.9)) $ s "kcks*4" # n 2 # orbit 2 # hpf 30 # gain 0.9,
+                whenmod 16 15 (# hpf 200) $ s "bs(3,8)" # n 2 # orbit 3 # hpf 60 # cut 111 # gain 0.6,
+                s "{pc2~~~~~~}%8" # n 10 # hpf 400 # orbit 1 # gain 0.9 # room 0.2 # speed 0.8,
+                whenmod 16 15 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1 # room 0.2,
                 s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.8,
                 s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 0.9 # n 2,
                 slow 8 $ s "cym" # hpf 6000 # room 0.2 # orbit 4 # gain 0.9,
                 -- fast "2 4" $ s "fx2*4" # n "15 12" # speed "0.5" # hpf 300 # orbit 1 # room 0.3 # gain 0.9
-                fast "2 4" $ s "fx2*4" # n "15 <12 18>" # speed "0.5 1.5" # hpf 300 # orbit 1 # room 0.3
+                fast "2 4" $ s "fx2*4" # n "15 <12 18>" # speed "0.5 1.5" # hpf 600 # gain "1 <0.9 1>" # orbit 1 # room 0.3
             ]
         ),
         ("e6",
             whenmod 8 7 (# crush 6)
             $ stack[
-                whenmod 8 7 (fast "1 1 2 4".(|* gain 0.9)) $ s "kcks*4" # n 2 # orbit 2 # hpf 300,
-                whenmod 16 15 (# hpf 200) $ s "bs(3,8)" # n 2 # orbit 3 # hpf 300 # cut 111 # gain 0.5,
-                s "{pc2~~~~~~}%8" # n 10 # hpf 400 # orbit 1 # gain 1.1 # room 0.2 # speed 0.9,
-                whenmod 16 15 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1.2 # room 0.2,
+                whenmod 8 7 (fast "1 1 2 4".(|* gain 0.9)) $ s "kcks*4" # n 2 # orbit 2 # hpf 300 # gain 0.9,
+                whenmod 16 15 (# hpf 200) $ s "bs(3,8)" # n 2 # orbit 3 # hpf 300 # cut 111 # gain 0.6,
+                s "{pc2~~~~~~}%8" # n 10 # hpf 400 # orbit 1 # gain 0.9 # room 0.2 # speed 0.8,
+                whenmod 16 15 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1 # room 0.2,
                 s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.8,
                 s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 0.9 # n 2,
                 slow 8 $ s "cym" # hpf 6000 # room 0.2 # orbit 4 # gain 0.9,
                 -- fast "2 4" $ s "fx2*4" # n "15 12" # speed "0.5" # hpf 300 # orbit 1 # room 0.3 # gain 0.9
-                fast "2 4" $ s "fx2*4" # n "15 12" # speed "0.5 1.5" # hpf 300 # orbit 1 # room 0.3
+                fast "2 4" $ s "fx2*4" # n "15 12" # speed "0.5 1.5" # hpf 600 # orbit 1 # room 0.3 # gain "1 <0.9 1>"
             ]
         )
      ]
 in
 d1
--- $ qtrigger 1
--- $ ur 64 "a1 a2 a3!2 a4 a5!2 a6" pats [] -- 1.50
+$ qtrigger 1
+-- $ ur 64 "a1 a2 a3!2 a4 a5!2 a6" pats []
 -- $ ur 64 "b1 b2 b3 b4 b5 b6!2 b7" pats []
 -- $ ur 64 "c1 c2 c3 c4 c5 c4 c4 c6" pats []
 -- $ ur 64 "d1 d2 d3 d4 d3 d4 d5 d6" pats []
--- $ ur 64 "e1 e2 e3 e4 e5 e4 e5 e6" pats []
-$ ur 16 "e5 e6" pats []
-
+$ ur 64 "e1 e2 e3 e4 e5 e4 e5 e6" pats []
+-- $ ur 16 "e5" pats []
+-- $ ur 328 "a1 a2 a3!2 a4 a5!2 a6 b1 b2 b3 b4 b5 b6!2 b7 c1 c2 c3 c4 c5 c4 c4 c6 d1 d2 d3 d4 d3 d4 d5 d6 e1 e2 e3 e4 e5 e4 e5 e6 e6" pats []
 # cps(140/240)
 
 
