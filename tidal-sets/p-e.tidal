@@ -38,8 +38,8 @@ let pats =
                 whenmod 16 15 (# hpf 200) $ s "bs(3,8)" # n 2 # orbit 3 # hpf 60 # cut 111 # gain 0.6,
                 s "{pc2~~~~~~}%8" # n 10 # hpf 400 # orbit 1 # gain 0.9 # room 0.2 # speed 0.8,
                 whenmod 16 15 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1 # room 0.2,
-                s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.6,
-                s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 0.7 # n 2,
+                s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.5,
+                s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 0.6 # n 2,
                 slow 8 $ s "cym" # hpf 6000 # room 0.2 # orbit 4 # gain 0.9,
                 fast "2 4" $ s "fx2*4" # n "15" # speed "0.5" # hpf "600" # orbit 1 # room 0.3 # gain "1.1 1"
                 -- fast "2 4" $ s "fx2*4" # n "0 12" # speed "0.5" # hpf "600" # orbit 1 # room 0.3 # gain "~ 0.65"
@@ -53,8 +53,8 @@ let pats =
                 whenmod 16 15 (# hpf 200) $ s "bs(3,8)" # n 2 # orbit 3 # hpf 60 # cut 111 # gain 0.6,
                 s "{pc2~~~~~~}%8" # n 10 # hpf 400 # orbit 1 # gain 0.9 # room 0.2 # speed 0.8,
                 whenmod 16 15 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1 # room 0.2,
-                s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.65,
-                s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 0.75 # n 2,
+                s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.5,
+                s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 0.6 # n 2,
                 slow 8 $ s "cym" # hpf 6000 # room 0.2 # orbit 4 # gain 0.9,
                 fast "2 4" $ s "fx2*4" # n "15 12" # speed "0.5" # hpf "600" # orbit 1 # room 0.3 # gain "1.1 0.6",
                 fast "2 4" $ s "fx2*4" # n "0 12" # speed "1" # hpf "600" # orbit 1 # room 0.3 # gain "~ 0.73"
@@ -68,8 +68,8 @@ let pats =
                 whenmod 16 15 (# hpf 200) $ s "bs(3,8)" # n 2 # orbit 3 # hpf 200 # cut 111 # gain 0.6,
                 s "{pc2~~~~~~}%8" # n 10 # hpf 400 # orbit 1 # gain 0.9 # room 0.2 # speed 0.8,
                 whenmod 16 15 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1 # room 0.2,
-                s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.65,
-                s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 0.85 # n 2,
+                s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.5,
+                s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 0.6 # n 2,
                 slow 8 $ s "cym" # hpf 6000 # room 0.2 # orbit 4 # gain 0.9,
                 fast "2 4" $ s "fx2*4" # n "15 12" # speed "0.5" # hpf "600" # orbit 1 # room 0.3 # gain "1.1 0.6",
                 fast "2 4" $ s "fx2*4" # n "0 12" # speed "1" # hpf "600" # orbit 1 # room 0.3 # gain "~ 0.73"

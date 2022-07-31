@@ -432,7 +432,7 @@ let pats =
             $ stack[
               whenmod 8 7 (# hpf 240) $ s "k2*4" # n 2 # gain 0.9 # shape 0.2 # orbit 2 # hpf 30,
               whenmod 16 15 (fast "2 4") $ s "[~sn3]*2" # n 5 # hpf 300 # room 0.2 # orbit 1 # gain 1.1,
-              whenmod 8 7 (# hpf 300) $ s "bs2(3,8)" # n 3 # orbit 3 # hpf 60 # gain 0.75,
+              whenmod 8 7 (# hpf 300) $ s "bs2(3,8)" # n 3 # orbit 3 # hpf 60 # gain 0.7,
               s "{fx2 ~ ~ ~ ~ }%8" # n "<12>" # speed 1 # cut 223 # hpf 400 # room 0.2 # gain 1.1 # orbit 1,
               s "[~hts]*4" # n 2 # hpf 6000 # room 0.2 # orbit 4 # gain 0.9,
               -- s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.7,
@@ -583,7 +583,7 @@ $ qtrigger 1
 -- $ ur 64 "a1 a2 a3!2 a4 a5!2 a6" pats []
 -- $ ur 72 "b1 b2 b3 b4 b5 b6!2 b7 b7" pats []
 -- $ ur 64 "c1 c2 c3 c4 c5 c4 c4 c6" pats []
-$ ur 64 "d1 d2 d3 d4 d3 d4 d5 d6" pats []
+-- $ ur 64 "d1 d2 d3 d4 d3 d4 d5 d6" pats []
 -- $ ur 64 "e1 e2 e3 e4 e5 e4 e5 e6" pats []
 -- $ ur 16 "b5" pats []
 -- $ ur 328 "a1 a2 a3!2 a4 a5!2 a6 b1 b2 b3 b4 b5 b6!2 b7 c1 c2 c3 c4 c5 c4 c4 c6 d1 d2 d3 d4 d3 d4 d5 d6 e1 e2 e3 e4 e5 e4 e5 e6 e6" pats []
