@@ -205,7 +205,7 @@ let pats =
      ]
 in
 d1
-$ ur 80 "marker c1 c2 c3 c4 c5 c4 c4 c6 c7" pats []
+$ ur 144 "c1 c2 c3 c4 c5 c4 c4 c6 c7" pats []
 # cps(140/240)
 
 

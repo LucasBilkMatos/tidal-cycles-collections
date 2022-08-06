@@ -1,0 +1,44 @@
+
+hush
+
+
+d1
+$ stack [
+    whenmod 8 7 (# hpf 240) $ s "kcks(4,4)" # n 1 # orbit 2 # gain 0.75,
+    s "bs2(3,8)" # n 5 # orbit 2 # hpf 60 # gain 0.7,
+    sometimes (stutWith 2 (0.0625) (|* gain 0.6)) $ s "[~hts]*4" # n 3 # legato 0.25 # hpf 3000 # orbit 4 # gain 0.9 # speed 0.7,
+    whenmod 16 15 (fast "1 1 2 4") $ s "~sn3~sn3" # n 3 # room 0.2 # gain 0.7 # orbit 1 # hpf 400,
+    whenmod 8 7 (hurry 2) $ sometimes (# speed "2 -2") $ degradeBy 0.7 $ fast "2 4" $ s "sn3*4" # n "4 5 6 7" # orbit 1# gain 0.8 # hpf 300 # room 0.2 # speed "0.5 1" # legato 0.3
+]
+# cps (140/240)
+
+d1
+$ stack [
+    whenmod 8 7 (# hpf 240) $ s "kcks(4,4)" # n 1 # orbit 2 # gain 0.75,
+    s "bs2(3,8)" # n 5 # orbit 2 # hpf 60 # gain 0.7,
+    sometimes (stutWith 2 (0.0625) (|* gain 0.6)) $ s "[~hts]*4" # n 3 # legato 0.25 # hpf 3000 # orbit 4 # gain 0.9 # speed 0.7,
+    whenmod 16 15 (fast "1 1 2 4") $ s "~sn3~sn3" # n 3 # room 0.2 # gain 0.7 # orbit 1 # hpf 400,
+    whenmod 8 7 (hurry 2) $ sometimes (# speed "2 -2") $ degradeBy 0.7 $ fast "2 4" $ s "fx2*4" # n "3 18 15 12" # orbit 1# gain 0.8 # hpf 300 # room 0.2 # speed "0.5 1" # legato 0.3
+]
+# cps (140/240)
+
+
+
+
+
+
+
+
+
+hush
+
+
+-- base
+-- r1
+-- lead
+
+
+let pats = []
+in
+d1 $ ur 16 "base" pats []
+# cps (140/240)
