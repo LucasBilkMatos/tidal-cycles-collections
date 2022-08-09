@@ -121,7 +121,7 @@ let pats = [
         )]
 in
 d1
-$ qtrigger 1
+-- $ qtrigger 1
 -- $ ur 16 "d2" pats []
 $ ur 112 "d2 d4 d5 d6 d7 d4 d5" pats []
 -- $ ur 16 "d5" pats []

@@ -97,3 +97,6 @@ $ qtrigger 1
 -- $ ur 64 "b1 b2 b2 b3" pats []
 $ ur 16 "b2" pats []
 # cps(140/240)
+
+
+hush

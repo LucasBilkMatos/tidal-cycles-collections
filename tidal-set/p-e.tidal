@@ -136,9 +136,9 @@ let pats =
 in
 d1
 -- $ qtrigger 1
--- $ ur 160 "e1 e2 e3 e4 e5 e6 e4 e7 e7 e7" pats []
+$ ur 160 "e1 e2 e3 e4 e5 e6 e4 e7 e7 e7" pats []
 -- $ ur 16 "e7" pats []
-$ ur 80 "e3 e4 e6 e7 e8" pats []
+-- $ ur 80 "e3 e4 e6 e7 e8" pats []
 -- $ ur 16 "e6" pats []
 # cps(140/240)
 
