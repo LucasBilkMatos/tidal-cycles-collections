@@ -37,7 +37,7 @@ let pats = [
                 s "[~hts]*4" # n 2 # hpf 2000 # room 0.1 # orbit 4 # gain 0.6 # legato 0.25,
                 -- s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.5 # room 0.1,
                 slow 8 $ s "cym" # hpf 3000 # room 0.3 # orbit 4 # gain 0.65,
-                fast "2 4" $ s "fx2*4" # n "<3 7>" # speed "<2 <1 2 0.5>>" # cut 154 # hpf 450 # orbit 1 # room 0.1 # gain "<0.75 0.8>" # ctf 2000,
+                whenmod 16 8 (degradeBy 0.1) $ degradeBy 0.15 $ fast "2 4" $ s "fx2*4" # n "<3 7>" # speed "<2 <1 2 0.5>>" # cut 154 # hpf 450 # orbit 1 # room 0.1 # gain "<0.75 0.8>" # ctf 2000,
                 whenmod 2 1 (# speed 0.5) $ s "[~pc2]~~~" # n 4 # hpf 600 # orbit 1 # room 0.2 # gain 0.7 # speed 0.2
             ]
         ),
@@ -61,7 +61,7 @@ let pats = [
                 whenmod 16 15 (fast "2 4") $ s "[~sn3]*2" # n 3 # hpf 400 # room 0.2 # orbit 1 # gain 0.8,
                 s "{fx2 ~ ~ ~ ~ ~ ~ }%8" # n "12" # speed 1 # cut 223 # hpf 350 # room 0.2 # gain 0.75 # orbit 1,
                 s "[~hts]*4" # n 2 # hpf 2000 # room 0.1 # orbit 4 # gain 0.6 # legato 0.25,
-                s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.57 # room 0.1 |* gain "[0.8 0.9 1 0.9]*4",
+                s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.52 # room 0.1 |* gain "[0.8 0.9 1 0.9]*4",
                 slow 8 $ s "cym" # hpf 3000 # room 0.3 # orbit 4 # gain 0.65,
                 fast "2 4" $ s "fx2*4" # n "<3 7>" # speed "<2 <1 2 0.5>>" # cut 154 # hpf 450 # orbit 1 # room 0.1 # gain "<0.8 0.9>",
                 whenmod 2 1 (# speed 0.5) $ s "[~pc2]~~~" # n 4 # hpf 800 # orbit 1 # room 0.2 # gain 0.8 # speed 0.2
@@ -69,12 +69,12 @@ let pats = [
         ),
         ("d5",
             stack [
-                whenmod 16 15 (#hpf 120) $ s "kcks(4,4)" # n 2 # gain 0.62 # cut 131 # shape 0.2 # orbit 2 # hpf 300 # ctf 3000,
+                whenmod 16 15 (#hpf 120) $ s "kcks(4,4)" # n 2 # gain 0.62 # cut 131 # shape 0.2 # orbit 2  # ctf 3000 # hpf 300,
                 s "bs2(3,8)" # n 3 # orbit 3 # hpf 180 # gain 0.4,
                 whenmod 16 15 (fast "2 4") $ s "[~sn3]*2" # n 3 # hpf 400 # room 0.2 # orbit 1 # gain 0.8,
                 s "{fx2 ~ ~ ~ ~ ~ ~ }%8" # n "12" # speed 1 # cut 223 # hpf 350 # room 0.2 # gain 0.75 # orbit 1,
                 s "[~hts]*4" # n 2 # hpf 2000 # room 0.1 # orbit 4 # gain 0.6 # legato 0.25,
-                s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.57 # room 0.1 |* gain "[0.8 0.9 1 0.9]*4",
+                s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.52 # room 0.1 |* gain "[0.8 0.9 1 0.9]*4",
                 slow 8 $ s "cym" # hpf 3000 # room 0.3 # orbit 4 # gain 0.65,
                 fast "2 4" $ s "fx2*4" # n "<3 7>" # speed "<2 <1 2 0.5>>" # cut 154 # hpf 450 # orbit 1 # room 0.1 # gain "<0.8 0.9>"  # ctf 20000,
                 whenmod 2 1 (# speed 0.5) $ s "[~pc2]~~~" # n 4 # hpf 800 # orbit 1 # room 0.2 # gain 0.8 # speed 0.2
@@ -100,7 +100,7 @@ let pats = [
                 whenmod 16 15 (fast "2 4") $ s "[~sn3]*2" # n 3 # hpf 400 # room 0.2 # orbit 1 # gain 0.8,
                 s "{fx2 ~ ~ ~ ~ ~ ~ }%8" # n "12" # speed 1 # cut 223 # hpf 350 # room 0.2 # gain 0.75 # orbit 1,
                 s "[~hts]*4" # n 2 # hpf 2000 # room 0.1 # orbit 4 # gain 0.6 # legato 0.25,
-                s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.57 # room 0.1 |* gain "[0.8 0.9 1 0.9]*4",
+                s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.52 # room 0.1 |* gain "[0.8 0.9 1 0.9]*4",
                 slow 8 $ s "cym" # hpf 3000 # room 0.3 # orbit 4 # gain 0.65,
                 whenmod 8 4 (# crush (slow 4 "8 6 5 4")) $ whenmod 8 7 (chunk 2 (hurry 2)) $ fast "2 [4|4|8]" $ s "fx2*4" # n "<3 7>" # speed "<2 <2 1 0.5>>" # cut 154 # hpf 450 # orbit 1 # room 0.1 # gain 0.9,
                 whenmod 2 1 (# speed 0.5) $ s "[~pc2]~~~" # n 4 # hpf 600 # orbit 1 # room 0.2 # gain 0.7 # speed 0.2
@@ -113,7 +113,7 @@ let pats = [
                 whenmod 16 15 (fast "2 4") $ s "[~sn3]*2" # n 3 # hpf 400 # room 0.2 # orbit 1 # gain 0.8,
                 s "{fx2 ~ ~ ~ ~ ~ ~ }%8" # n "12" # speed 1 # cut 223 # hpf 350 # room 0.2 # gain 0.75 # orbit 1,
                 s "[~hts]*4" # n 2 # hpf 2000 # room 0.1 # orbit 4 # gain 0.6 # legato 0.25,
-                s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.57 # room 0.1 |* gain "[0.8 0.9 1 0.9]*4",
+                s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.52 # room 0.1 |* gain "[0.8 0.9 1 0.9]*4",
                 slow 8 $ s "cym" # hpf 3000 # room 0.3 # orbit 4 # gain 0.65,
                 fast "2 4" $ s "fx2*4" # n "<3 7>" # speed "<2 <1 2 0.5>>" # cut 154 # hpf 450 # orbit 1 # room 0.1 # gain 0.9,
                 whenmod 2 1 (# speed 0.5) $ s "[~pc2]~~~" # n 4 # hpf 600 # orbit 1 # room 0.2 # gain 0.7 # speed 0.2
@@ -121,12 +121,14 @@ let pats = [
         )]
 in
 d1
--- $ qtrigger 1
--- $ ur 16 "d2" pats []
-$ ur 112 "d2 d4 d5 d6 d7 d4 d5" pats []
+$ qtrigger 1
 -- $ ur 16 "d5" pats []
+-- $ ur 112 "d1 d4 d5 d6 d7 d4 d5" pats []
+$ ur 48 "d4 d6 d7" pats []
 -- $ ur 32 "d7" pats []
-# cps(140/240)
+-- # cps(140/240)
 
 
 hush
+
+setcps (140/240)

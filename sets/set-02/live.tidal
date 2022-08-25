@@ -1,0 +1,251 @@
+-- tempate pattern
+
+
+-- 1
+-- write something about the pattern emotionally
+
+d1
+$ stack[
+  whenmod 64 48 (# hpf 300) $ whenmod 16 15 (# hpf "30 30 300 300") $ s "kcks(4,4)" # n 2 # orbit 2 # hpf 30 # gain 0.7 # cut 111,
+  slow 2 $ s "bs2 ~ ~ ~ [~bs] ~ ~ ~" # up "0 ~ ~ ~ [~0] ~ ~ ~" # n 6 # cut 1621 # orbit 3 # gain 0.7 # hpf 60,
+  s "{pc2~~~~~~}%8" # n 22  # orbit 1 # hpf 320 # gain 0.7 # room 0.2 # cut 121 # speed 0.5,
+  slow 2 $ s "fxg" # n "<17 16>" # orbit 1 # hpf 400 # gain 0.65 # room 0.2,
+  whenmod 64 8 (# gain 0.7) $ sometimesBy 0.1 (stutWith 2 (0.06)(|* gain 0.7)) $ s "[~hts]*4" # n 2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 # speed 0.7 # legato 0.2,
+  whenmod 64 16 (# gain 0.62) $ s "hts*16" # n 2 # legato 0.2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 |* gain "[0.8 0.9 1 0.8]*4",
+  slow 8 $ s "cym" # orbit 4 # hpf 4000 # room 0.2 # gain 0.6,
+  whenmod 8 7 (# ctf 18000) $ whenmod 64 16 (# ctf 6000) $ chop 8 $ s "dl" # n "<34 <13 14>>/2" # begin "<0.25 0.75>" # cut 671 # orbit 1 # hpf 400 # gain 0.75 # ctf 1500
+]
+# cps(140/240)
+
+
+
+
+
+
+
+-- 2
+-- write something about the pattern emotionally
+
+d1
+$ stack[
+  whenmod 64 48 (# hpf 300) $ whenmod 16 15 (# hpf 300) $ s "kcks(4,4)" # n 2 # orbit 2 # hpf 30 # gain 0.7 # cut 111,
+  slow 2 $ s "bs2 ~ ~ ~ [~bs] ~ ~ ~" # up "0 ~ ~ ~ [~0] ~ ~ ~" # n 6 # cut 1621 # orbit 3 # gain 0.7 # hpf 60,
+  s "{pc2~~~~~~}%8" # n 22  # orbit 1 # hpf 300 # gain 0.5 # room 0.2 # cut 121 # speed 0.7,
+  slow 2 $ s "fxg" # n "<17 16>" # orbit 1 # hpf 400 # gain 0.65 # room 0.2,
+  whenmod 64 16 (# gain 0.7) $ sometimesBy 0.05 (stutWith 2 (0.06)(|* gain 0.8)) $ s "[~hts]*4" # n 2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 # speed 0.7 # legato 0.2,
+  whenmod 64 32 (# gain 0.62) $ s "hts*16" # n 2 # legato 0.2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 |* gain "[0.8 0.9 1 0.8]*4",
+  slow 8 $ s "cym" # orbit 4 # hpf 4000 # room 0.2 # gain 0.6,
+  whenmod 8 7 (# ctf 18000) $ whenmod 64 32 (# ctf 18000) $ whenmod 64 16 (# ctf 6000) $ chop 8 $ s "dl" # n "<17 <28 36>>/2" # begin "<0.25 0.75>" # cut 671 # orbit 1 # hpf 400 # gain 0.75 # ctf 3000
+]
+# cps(140/240)
+
+hush
+
+
+
+
+
+
+
+
+
+-- 3
+-- write something about the pattern emotionally
+
+d1
+$ stack[
+  whenmod 64 48 (# hpf 300) $ whenmod 16 15 (# hpf 300) $ s "kcks(4,4)" # n 2 # orbit 2 # hpf 30 # gain 0.7 # cut 111,
+  slow 2 $ s "bs2 ~ ~ ~ [~bs] ~ ~ ~" # up "0 ~ ~ ~ [~0] ~ ~ ~" # n 6 # cut 1621 # orbit 3 # gain 0.7 # hpf 60,
+  s "{pc2~~~~~~}%8" # n 22  # orbit 1 # hpf 300 # gain 0.5 # room 0.2 # cut 121 # speed 0.7,
+  slow 4 $ s "fxg" # n "<10>" # orbit 1 # hpf 400 # gain 0.65 # room 0.2,
+  whenmod 64 8 (# gain 0.7) $ sometimesBy 0.05 (stutWith 2 (0.06)(|* gain 0.8)) $ s "[~hts]*4" # n 2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 # speed 0.7 # legato 0.2,
+  whenmod 64 16 (# gain 0.6) $ s "hts*16" # n 2 # legato 0.2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 |* gain "[0.8 0.9 1 0.8]*4",
+  slow 8 $ s "cym" # orbit 4 # hpf 4000 # room 0.2 # gain 0.6,
+  whenmod 4 3 ((# ctf 18000).(# crush "6 .. 4")) $ whenmod 64 32 (# ctf 18000) $ whenmod 64 16 (# ctf 6000) $ chop 8 $ s "dl" # n "<36 <37 29>>" # begin "<0.25 0.75>" # cut 671 # orbit 1 # hpf 400 # gain 0.75 # ctf 3000
+]
+# cps(140/240)
+
+
+hush
+
+
+
+
+
+
+
+-- 4
+-- write something about the pattern emotionally
+
+d1
+$ stack[
+  whenmod 64 48 (# hpf 300) $ whenmod 16 15 (# hpf 300) $ s "kcks(4,4)" # n 2 # orbit 2 # hpf 30 # gain 0.7 # cut 111,
+  slow 2 $ s "bs2 ~ ~ ~ [~bs] ~ ~ ~" # up "0 ~ ~ ~ [~0] ~ ~ ~" # n 6 # cut 1621 # orbit 3 # gain 0.7 # hpf 60,
+  s "{pc2~~~~~~}%8" # n 22  # orbit 1 # hpf 300 # gain 0.5 # room 0.2 # cut 121 # speed 0.7,
+  slow 4 $ s "fxg" # n "<2>" # orbit 1 # hpf 400 # gain 0.65 # room 0.2,
+  whenmod 64 8 (# gain 0.7) $ sometimesBy 0.05 (stutWith 2 (0.06)(|* gain 0.8)) $ s "[~hts]*4" # n 2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 # speed 0.7 # legato 0.2,
+  whenmod 64 16 (# gain 0.6) $ s "hts*16" # n 2 # legato 0.2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 |* gain "[0.8 0.9 1 0.8]*4",
+  slow 8 $ s "cym" # orbit 4 # hpf 4000 # room 0.2 # gain 0.6,
+  whenmod 4 3 ((# ctf 18000).(# crush "6 .. 4")) $ whenmod 64 32 (# ctf 18000) $ whenmod 64 16 (# ctf 6000) $ chop 8 $ s "dl" # n "<39 <24 26>>" # begin "<0.25 0.75>" # cut 671 # orbit 1 # hpf 400 # gain 0.75 # ctf 3000
+]
+# cps(140/240)
+
+
+hush
+
+
+
+
+
+
+
+
+-- 5
+-- write something about the pattern emotionally
+
+d1
+$ stack[
+  whenmod 64 48 (# hpf 300) $ whenmod 16 15 (# hpf 300) $ s "kcks(4,4)" # n 2 # orbit 2 # hpf 30 # gain 0.7 # cut 111,
+  slow 2 $ s "bs2 ~ ~ ~ [~bs] ~ ~ ~" # up "0 ~ ~ ~ [~0] ~ ~ ~" # n 6 # cut 1621 # orbit 3 # gain 0.7 # hpf 60,
+  s "{pc2~~~~~~}%8" # n 22  # orbit 1 # hpf 300 # gain 0.5 # room 0.2 # cut 121 # speed 0.7,
+  slow 4 $ s "fxg" # n "<28>" # orbit 1 # hpf 400 # gain 0.65 # room 0.2,
+  whenmod 64 8 (# gain 0.7) $ sometimesBy 0.05 (stutWith 2 (0.06)(|* gain 0.8)) $ s "[~hts]*4" # n 2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 # speed 0.7 # legato 0.2,
+  whenmod 64 16 (# gain 0.6) $ s "hts*16" # n 2 # legato 0.2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 |* gain "[0.8 0.9 1 0.8]*4",
+  slow 8 $ s "cym" # orbit 4 # hpf 4000 # room 0.2 # gain 0.6,
+  whenmod 4 3 ((# ctf 18000).(# crush "6 .. 4")) $ whenmod 64 32 (# ctf 18000) $ whenmod 64 16 (# ctf 6000) $ chop 8 $ s "dl" # n "<40 <32 23>>" # begin "<0.25 0.75>" # cut 671 # orbit 1 # hpf 400 # gain 0.75 # ctf 3000
+]
+# cps(140/240)
+
+
+hush
+
+
+
+
+
+
+
+
+
+
+-- 6
+-- write something about the pattern emotionally
+
+d1
+$ stack[
+  whenmod 64 48 (# hpf 300) $ whenmod 16 15 (# hpf 300) $ s "kcks(4,4)" # n 2 # orbit 2 # hpf 30 # gain 0.7 # cut 111,
+  slow 2 $ s "bs2 ~ ~ ~ [~bs] ~ ~ ~" # up "0 ~ ~ ~ [~0] ~ ~ ~" # n 6 # cut 1621 # orbit 3 # gain 0.7 # hpf 60,
+  s "{pc2~~~~~~}%8" # n 22  # orbit 1 # hpf 300 # gain 0.5 # room 0.2 # cut 121 # speed 0.7,
+  slow 4 $ s "fxg" # n "<28>" # orbit 1 # hpf 400 # gain 0.65 # room 0.2,
+  whenmod 64 8 (# gain 0.7) $ sometimesBy 0.05 (stutWith 2 (0.06)(|* gain 0.8)) $ s "[~hts]*4" # n 2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 # speed 0.7 # legato 0.2,
+  whenmod 64 16 (# gain 0.55) $ s "hts*16" # n 2 # legato 0.2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 |* gain "[0.8 0.9 1 0.8]*4",
+  slow 8 $ s "cym" # orbit 4 # hpf 4000 # room 0.2 # gain 0.6,
+  whenmod 4 3 ((# ctf 18000).(# crush "6 .. 4")) $ whenmod 64 32 (# ctf 18000) $ whenmod 64 16 (# ctf 6000) $ chop 8 $ s "dl" # n "<42 <39 44>>" # begin "<0.25 0.75>" # cut 671 # orbit 1 # hpf 400 # gain 0.75 # ctf 3000
+]
+# cps(140/240)
+
+
+hush
+
+
+
+
+
+
+
+
+
+-- 7
+-- write something about the pattern emotionally
+
+d1
+$ stack[
+  whenmod 64 48 (# hpf 300) $ whenmod 16 15 (# hpf 300) $ s "kcks(4,4)" # n 2 # orbit 2 # hpf 30 # gain 0.7 # cut 111,
+  slow 2 $ s "bs2 ~ ~ ~ [~bs] ~ ~ ~" # up "0 ~ ~ ~ [~0] ~ ~ ~" # n 6 # cut 1621 # orbit 3 # gain 0.7 # hpf 60,
+  s "{pc2~~~~~~}%8" # n 22  # orbit 1 # hpf 300 # gain 0.5 # room 0.2 # cut 121 # speed 0.7,
+  slow 4 $ s "fxg" # n "<21>" # orbit 1 # hpf 400 # gain 0.65 # room 0.2,
+  whenmod 64 8 (# gain 0.7) $ sometimesBy 0.05 (stutWith 2 (0.06)(|* gain 0.8)) $ s "[~hts]*4" # n 2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 # speed 0.7 # legato 0.2,
+  whenmod 64 16 (# gain 0.55) $ s "hts*16" # n 2 # legato 0.2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 |* gain "[0.8 0.9 1 0.8]*4",
+  slow 8 $ s "cym" # orbit 4 # hpf 4000 # room 0.2 # gain 0.6,
+  whenmod 4 3 ((# ctf 18000).(# crush "6 .. 4")) $ whenmod 64 32 (# ctf 18000) $ whenmod 64 16 (# ctf 6000) $ chop 8 $ s "dl" # n "<39 <19 43>>" # begin "<0.25 0.75>" # cut 671 # orbit 1 # hpf 400 # gain 0.75 # ctf 3000
+]
+# cps(140/240)
+
+
+hush
+
+
+
+
+
+
+
+
+
+
+-- 8
+-- write something about the pattern emotionally
+
+d1
+$ stack[
+  whenmod 64 48 (# hpf 300) $ whenmod 16 15 (# hpf 300) $ s "kcks(4,4)" # n 2 # orbit 2 # hpf 30 # gain 0.7 # cut 111,
+  slow 2 $ s "bs2 ~ ~ ~ [~bs] ~ ~ ~" # up "0 ~ ~ ~ [~0] ~ ~ ~" # n 6 # cut 1621 # orbit 3 # gain 0.7 # hpf 60,
+  s "{pc2~~~~~~}%8" # n 22  # orbit 1 # hpf 300 # gain 0.5 # room 0.2 # cut 121 # speed 0.7,
+  slow 4 $ s "fxg" # n "<2>" # orbit 1 # hpf 400 # gain 0.65 # room 0.2,
+  whenmod 64 8 (# gain 0.7) $ sometimesBy 0.05 (stutWith 2 (0.06)(|* gain 0.8)) $ s "[~hts]*4" # n 2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 # speed 0.7 # legato 0.2,
+  whenmod 64 16 (# gain 0.55) $ s "hts*16" # n 2 # legato 0.2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 |* gain "[0.8 0.9 1 0.8]*4",
+  slow 8 $ s "cym" # orbit 4 # hpf 4000 # room 0.2 # gain 0.6,
+  whenmod 4 3 ((# ctf 18000).(# crush "6 .. 4")) $ whenmod 64 32 (# ctf 18000) $ whenmod 64 16 (# ctf 6000) $ chop 8 $ s "dl" # n "<49 <29 13>>" # begin "<0.25 0.75>" # cut 671 # orbit 1 # hpf 400 # gain 0.75 # ctf 3000
+]
+# cps(140/240)
+
+
+hush
+
+
+
+
+
+
+
+-- 9
+-- write something about the pattern emotionally
+
+d1
+$ stack[
+  whenmod 64 48 (# hpf 300) $ whenmod 16 15 (# hpf 300) $ s "kcks(4,4)" # n 2 # orbit 2 # hpf 30 # gain 0.7 # cut 111,
+  slow 2 $ s "bs2 ~ ~ ~ [~bs] ~ ~ ~" # up "0 ~ ~ ~ [~0] ~ ~ ~" # n 6 # cut 1621 # orbit 3 # gain 0.7 # hpf 60,
+  s "{pc2~~~~~~}%8" # n 22  # orbit 1 # hpf 300 # gain 0.5 # room 0.2 # cut 121 # speed 0.7,
+  slow 4 $ s "fxg" # n "<12>" # orbit 1 # hpf 400 # gain 0.65 # room 0.2,
+  whenmod 64 8 (# gain 0.7) $ sometimesBy 0.05 (stutWith 2 (0.06)(|* gain 0.8)) $ s "[~hts]*4" # n 2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 # speed 0.7 # legato 0.2,
+  whenmod 64 16 (# gain 0.55) $ s "hts*16" # n 2 # legato 0.2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 |* gain "[0.8 0.9 1 0.8]*4",
+  slow 8 $ s "cym" # orbit 4 # hpf 4000 # room 0.2 # gain 0.6,
+  whenmod 4 3 ((# ctf 18000).(# crush "6 .. 4")) $ whenmod 64 32 (# ctf 18000) $ whenmod 64 16 (# ctf 6000) $ chop 8 $ s "dl" # n "<41 <27 18>>" # begin "<0.25 0.75>" # cut 671 # orbit 1 # hpf 400 # gain 0.75 # ctf 3000
+]
+# cps(140/240)
+
+
+hush
+
+
+
+
+
+-- 10
+-- write something about the pattern emotionally
+
+d1
+$ stack[
+  whenmod 64 48 (# hpf 300) $ whenmod 16 15 (# hpf 300) $ s "kcks(4,4)" # n 2 # orbit 2 # hpf 30 # gain 0.7 # cut 111,
+  slow 2 $ s "bs2 ~ ~ ~ [~bs] ~ ~ ~" # up "0 ~ ~ ~ [~0] ~ ~ ~" # n 6 # cut 1621 # orbit 3 # gain 0.7 # hpf 60,
+  s "{pc2~~~~~~}%8" # n 22  # orbit 1 # hpf 300 # gain 0.5 # room 0.2 # cut 121 # speed 0.7,
+  slow 4 $ s "fxg" # n "<17>" # orbit 1 # hpf 400 # gain 0.65 # room 0.2,
+  whenmod 64 8 (# gain 0.7) $ sometimesBy 0.05 (stutWith 2 (0.06)(|* gain 0.8)) $ s "[~hts]*4" # n 2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 # speed 0.7 # legato 0.2,
+  whenmod 64 16 (# gain 0.55) $ s "hts*16" # n 2 # legato 0.2 # orbit 4 # hpf 5000 # room 0.2 # gain 0 |* gain "[0.8 0.9 1 0.8]*4",
+  slow 8 $ s "cym" # orbit 4 # hpf 4000 # room 0.2 # gain 0.6,
+  whenmod 4 3 ((# ctf 18000).(# crush "6 .. 4")) $ whenmod 64 32 (# ctf 18000) $ whenmod 64 16 (# ctf 6000) $ chop 8 $ s "dl" # n "<22 <37 48>>" # begin "<0.25 0.75>" # cut 671 # orbit 1 # hpf 400 # gain 0.75 # ctf 3000
+]
+# cps(140/240)
+
+
+hush
